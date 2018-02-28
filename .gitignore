@@ -1,1 +1,6 @@
-commit.sh
++*
++!*/
++!*.php
++!*.css
++!*.html
++!*.js
