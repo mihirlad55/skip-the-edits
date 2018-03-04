@@ -130,3 +130,21 @@ console.log("begin init script");
 ```
 
 Then save changes and press **Ctrl + Enter** for the changes to take effect.
+
+# To Access the MySQL Server
+
+You can access the MySQL Server two ways:
+1. C9 PHP Script
+2. MySQL Workbench (https://dev.mysql.com/downloads/workbench/)
+
+IPV4 Address of Database: `207.223.160.10`  
+Username to Log In to Database: `AWS`  
+Password to Log In to Database: `6Jy%J6uWsIXr*t@^`  
+
+**NOTE: For you to be able to access the database, I will need to authorize your IP address.**  
+
+If you are connecting from C9, enter the following command into a terminal:  
+`wget http://ipinfo.io/ip -qO -`
+
+If you are using MySQL Workbench, search "what is my ip address" in google, and it will
+give you your public IP address.
