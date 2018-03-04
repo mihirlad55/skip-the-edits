@@ -148,3 +148,6 @@ If you are connecting from C9, enter the following command into a terminal:
 
 If you are using MySQL Workbench, search "what is my ip address" in google, and it will
 give you your public IP address.
+
+
+Unnecessary Text
