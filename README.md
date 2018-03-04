@@ -42,4 +42,19 @@ To switch onto another branch, simply run the shell script and then enter the na
 
 # Merging Branches (MergeBranch.sh)
 
-Once you are satisfied with the changes you've made on your separate branch, you can merge that separate branch onto the master branch. Simply run the shell script MergeBranch.sh.
+Once you are satisfied with the changes you've made on your separate branch, you can merge that separate branch onto the master branch. Simply run the shell script MergeBranch.sh and enter the name of the branch you want to merge the master branch with.
+
+# Merging Conflicts
+
+If there are some conflicts that arise while committing your changes or merging (which can happen if changes are made on two seperate branches and are being merged together), then the commit will fail and git will enter merge mode. The file having the conflicted changes will be marked with a type of notation that will highlight the difference between the two files, and you will have to manually merge the changes.
+
+The changes that are conflicting and on the master branch will be surrounded by "<<<<<<<<HEAD" and "========". The changes that are conflicting and on the other branch will be surrounded by something similar to "======" and ">>>>>>>>"
+
+i.e.
+<<<<<< HEAD
+This change was made on master
+======
+
+======
+This change was made on the other branch
+>>>>>>
