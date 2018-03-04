@@ -1,3 +1,20 @@
+# Important!
+
+Before comitting, if you haven't done so already, please edit the Git config and update your name and email address so that BitBucket can associate your name with every commit you make.
+You only have to do this once. Do the following:
+
+1. Click **Window** on the menubar at the top.
+2. Click the first option which should be **New Terminal**
+3. In the terminal, enter the following commands, pressing **Enter** after each one.  
+`git config --global user.name "FIRST_NAME LAST_NAME"`  
+`git config --global user.email "MY_NAME@example.com"`
+4. Make sure you write everything exactly as shown above and replace **FIRST_NAME** with your
+first name and **LAST_NAME** with your last name. Replace **MY_NAME@example.com** with your email.
+
+# What is Git?
+
+Git is a version control system for tracking changes in computer files and coordinating work on those files among multiple people.
+
 # How To Use Git
 
 There are several shell script files premade which you can run on C9 to perform the most common Git Operations.
