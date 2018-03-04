@@ -27,3 +27,5 @@ If you want to cancel the commit without making any changes, simply save the fil
 This is where the beauty of Git comes in. By running this shell script, you can remove a specific commit from the past. Simply run the shell script and then write the 7 character SHA Hash code of the commit and press enter. The Nano editor will once again pop up in the console where you can detail the change you just made and why you made it. After you are finished writing the commit message, you can press Ctrl + Z to exit the nano editor. It will prompt you if you want to save your changes. Press "y". It will then ask you if you want to rename the file, leave it as it is, and just press enter.
 
 If you want to cancel the commit without making any changes, simply save the file without making any changes to the commit message in the nano editor.
+
+Test
