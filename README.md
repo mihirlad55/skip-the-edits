@@ -51,10 +51,11 @@ If there are some conflicts that arise while committing your changes or merging 
 The changes that are conflicting and on the master branch will be surrounded by "<<<<<<<<HEAD" and "========". The changes that are conflicting and on the other branch will be surrounded by something similar to "======" and ">>>>>>>>"
 
 i.e.
-\<<<<<< HEAD
-This change was made on master
-\=====
 
-\======
-This change was made on the other branch
+<<<<<< HEAD  
+This change was made on master  
+======  
+
+======  
+This change was made on the other branch  
 \>\>\>\>\>\>
