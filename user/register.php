@@ -10,33 +10,34 @@ include_once 'dbconnect.php';
 $error = false;
 
 //check if form has been submitted
-if(isset($_POST['signup'])) {
-  $username = mysqli_real_escape_string($con, $_POST['username']);
-  $email = mysqli_real_escape_string($con, $_POST['email']);
-  $password = mysqli_real_escape_string($con, $_POST['password']);
-  $epassword = md5($password);
-  $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
-  $ecpassword = md5($cpassword);
+if (isset($_POST['signup'])) {
+  $username = $conn->real_escape_string($_POST['username']);
+  $email = $conn->real_escape_string($_POST['email']);
+  $password = $conn->real_escape_string($_POST['password']);
+  $cpassword = $conn->real_escape_string($_POST['cpassword']);
+  $hashedpass = password_hash($cpassword, PASSWORD_DEFAULT);
+  
 
   if (!preg_match("/^[a-zA-Z ]+$/",$username)) {
     $error = true;
     $username_error = "Username must contain only letters";
   }
-
-  if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = true;
-    $email_error = "Please enter Valid Email Adress";
+    $email_error = "Please enter a valid email address";
   }
-  if(strlen($password) < 6) {
+  if (strlen($password) < 6) {
     $error = true;
     $password_error = "Password must be minimum of 6 characters";
   }
-  if($epassword != $ecpassword) {
+  if($password != $cpassword) {
     $error = true;
-    $ecpassword_error = "Password's don't match";
+    $ecpassword_error = "Passwords do not match";
   }
+  
   if (!$error) {
-    if(mysqli_query($con, "INSERT INTO users(username,email,password) VALUES( '".$username."','".$email."','".$epassword."')")) {
+    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashedpass')";
+    if ($conn->query($sql) === TRUE) {
       $successmsg = "Successfully Registered! <a href='login.php'>Click here to login</a>";
     } else {
       $errormsg = "Error in registering...Please try again later!";
@@ -44,6 +45,7 @@ if(isset($_POST['signup'])) {
   }
 }
 ?>
+
 <html>
   <head>
     <meta charset="utf-8">
