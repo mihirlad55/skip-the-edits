@@ -94,23 +94,22 @@ To make C9 automatically pull changes from bitbucket on startup, do the followin
 2. Click on "Open Your Init Script"
 3. Copy and paste the following into the Init Script:
 
-    ```
-    console.log("begin init script");  
-        setTimeout(function() {  
-                    services.console.show();  
-                    services.console.open({  
-                        editorType: "terminal",  
-                        active: true  
-                    }, function(e, tab) {  
-                        tab.editor.write([  
-                            "cd ~",  
-                            "cd \"environment/skip-the-edits/Git Scripts/\"",  
-                            "sh Pull.sh",  
-                        ].join(" &&\\\n") + "\n");  
-                        console.log("run script");  
-                    });  
-        }, 1000);  
-    ```
-    
-4. Save Changes
-5. Press **Ctrl + Enter** for the changes to take effect
+```
+console.log("begin init script");  
+    setTimeout(function() {  
+                services.console.show();  
+                services.console.open({  
+                    editorType: "terminal",  
+                    active: true  
+                }, function(e, tab) {  
+                    tab.editor.write([  
+                        "cd ~",  
+                        "cd \"environment/skip-the-edits/Git Scripts/\"",  
+                        "sh Pull.sh",  
+                    ].join(" &&\\\n") + "\n");  
+                    console.log("run script");  
+                });  
+    }, 1000);  
+```
+
+Then save changes and press **Ctrl + Enter** for the changes to take effect.
