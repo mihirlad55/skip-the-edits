@@ -1,2 +1,2 @@
 #!/bin/bash
-git merge HEAD
+git merge master
