@@ -93,7 +93,6 @@ To make C9 automatically pull changes from bitbucket on startup, do the followin
 1. Click on "AWS Cloud9" in the top left corner
 2. Click on "Open Your Init Script"
 3. Copy and paste the following into the Init Script:
-
 ```
 console.log("begin init script");
     setTimeout(function() {
