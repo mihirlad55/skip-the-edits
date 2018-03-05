@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
   header("Location:homepage.php");
 }
 
@@ -30,7 +30,7 @@ if (isset($_POST['signup'])) {
     $error = true;
     $password_error = "Password must be minimum of 6 characters";
   }
-  if($password != $cpassword) {
+  if ($password != $cpassword) {
     $error = true;
     $ecpassword_error = "Passwords do not match";
   }
