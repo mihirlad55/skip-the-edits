@@ -7,13 +7,14 @@
   include_once 'dbconnect.php';
 
   if(isset($_POST['login'])) { //Checks whether user clicked login
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $epassword = md5($password);
-    $result = mysqli_query($con, "SELECT * FROM users WHERE username = '" .$username. "' AND password = '" .$epassword."'");
+    $username = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
 
-      if($row = mysqli_fetch_array($result)) {
-        $_SESSION['user']=$username;
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$epassword'";
+    $result = $conn->query($sql);
+
+      if ($row = mysqli_fetch_array($result)) {
+        $_SESSION['user'] = $username;
         echo '<script type="text/javascript"> window.open("homepage.php","_self");</script>'; //Redirects to dashboard.php is successful
       } else {
         $errormsg = "Invalid Username or Password";
