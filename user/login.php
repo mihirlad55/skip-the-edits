@@ -1,5 +1,6 @@
-<?php session_start(); ?>
 <?php
+  session_start();
+
   if (isset($_SESSION['user'])) { //Checking whether session is already there or not. If true, header will redirect to homepage directly
     header("Loaction:homepage.php");
   }
@@ -18,11 +19,8 @@
         echo '<script type="text/javascript"> window.open("homepage.php","_self");</script>'; //Redirects to dashboard.php is successful
       } else {
         $errormsg = "Invalid Username or Password";
-      }kfadsjflak;sdf
-
-
-      dsafkjadsflkjadf
-}
+      }
+  }
 ?>
 
 <html>
