@@ -10,7 +10,7 @@
     $username = $conn->real_escape_string($_POST['username']);
     $password = $conn->real_escape_string($_POST['password']);
 
-    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$epassword'";
+    $sql = "SELECT * FROM users WHERE username = '$username'";
     $result = $conn->query($sql);
 
       if ($row = mysqli_fetch_array($result)) {
