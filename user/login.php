@@ -1,12 +1,12 @@
 <?php session_start(); ?>
 <?php
-  if(isset($_SESSION['user'])) { //Checking whether session is already there or not. If true, header will redirect to homepage directly
+  if (isset($_SESSION['user'])) { //Checking whether session is already there or not. If true, header will redirect to homepage directly
     header("Loaction:homepage.php");
   }
 
   include_once 'dbconnect.php';
 
-  if(isset($_POST['login'])) { //Checks whether user clicked login
+  if (isset($_POST['login'])) { //Checks whether user clicked login
     $username = $conn->real_escape_string($_POST['username']);
     $password = $conn->real_escape_string($_POST['password']);
 
@@ -21,6 +21,7 @@
       }
 }
 ?>
+
 <html>
   <head>
     <meta charset="utf-8">
