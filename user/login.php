@@ -18,7 +18,10 @@
         echo '<script type="text/javascript"> window.open("homepage.php","_self");</script>'; //Redirects to dashboard.php is successful
       } else {
         $errormsg = "Invalid Username or Password";
-      }
+      }kfadsjflak;sdf
+
+
+      dsafkjadsflkjadf
 }
 ?>
 
