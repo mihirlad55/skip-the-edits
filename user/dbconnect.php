@@ -12,6 +12,7 @@
     //if connection fails, exit and send error message
     if ($conn->connect_error) {
     	die("Could not connect: " . $conn->connect_error);
+    } else {
+        echo "Connection successful";
     }
-    else echo "Connection successful";
 ?>
