@@ -1,6 +1,5 @@
 <?php
 //connect to mysql database
-//$con = mysqli_connect("localhost", "root", "", "STE_login") or die("Error " . mysqli_error($con));
 
     define("DB_NAME", "users");
     define("DB_USER", "AWS");
@@ -15,5 +14,4 @@
     	die("Could not connect: " . $conn->connect_error);
     }
     else echo "Connection successful";
-
 ?>
