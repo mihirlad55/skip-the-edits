@@ -17,10 +17,10 @@ if (isset($_POST['signup'])) {
   $cpassword = $conn->real_escape_string($_POST['cpassword']);
   $hashedpass = password_hash($cpassword, PASSWORD_DEFAULT);
   
-
-  if (!preg_match("/^[a-zA-Z ]+$/",$username)) {
+  $aValid = array('-', '_');
+  if (!ctype_alnum(str_replace($aValid, '', $username))) {
     $error = true;
-    $username_error = "Username must contain only letters";
+    $username_error = "Username can only contain letters, numbers and dashes and underscores.";
   }
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error = true;
@@ -51,10 +51,9 @@ if (isset($_POST['signup'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Skip the Edits</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <head>
   <body>
-    <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="register">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="register">
       <label>Username</label> <br>
       <input type="text" name="username" placeholder="Your Username" required/>
       <span class="text-danger"><?php if (isset($username_error)) echo $username_error; ?></span>
