@@ -34,9 +34,8 @@ h1 {
 }
 
 .navbar-icon img {
-    height: inherit
+    height: inherit;
 }
-
 
 #logo {
     margin: 0;
@@ -48,67 +47,4 @@ h1 {
 #iconAvatar {
     padding: 0.4em 2em 0.4em 0em;
     height: 3.2em;
-}
-
-#containerLeft {
-    margin: 2em;
-    width: 40%;
-    background-color: yellow;
-    float: left;
-}
-
-#containerRight {
-    margin: 2em;
-    margin-right: 2em;
-    width: 24em;
-    float: right;
-    border: 0.1em solid black;
-    border-left-width: 0.14em;
-}
-
-#containerRight h2 {
-    font-size: 1.5em;
-    font-family: Arial;
-    text-align: center;
-    padding: 1em;
-}
-
-.container-edit-icon {
-    float: left;
-    width: 6em;
-    background-color: #1955C39C;
-}
-
-
-.edit-icon {
-    display: inline;
-    width: 6em;
-    padding: 0;
-    margin: 0;
-    float: left;
-}
-
-.edit-icon:hover {
-    opacity: 0.7;
-}
-
-.edit-icon:active {
-    opacity: 0.25;
-}
-
-
-#essayTitle {
-    font-family: Arial;
-    font-size: 2em;
-    width: 100%;
-    text-align: center;
-    line-height: 1.5em;
-}
-
-#essayByline {
-    font-family: Arial;
-    font-size: 1em;
-    width: 100%;
-    text-align: center;
-    line-height: 1.5em;
 }
