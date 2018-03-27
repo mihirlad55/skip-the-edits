@@ -1,0 +1,6 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+DirectoryIndex index.html edit.html
+order deny,allow
+AddType application/x-httpd-php .htm .html
