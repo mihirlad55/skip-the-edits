@@ -112,3 +112,9 @@ h1 {
     text-align: center;
     line-height: 1.5em;
 }
+
+#txtComment {
+    width: 98.4%;
+    margin-left: 0.1em;
+    margin-right: 0.4em;
+}
