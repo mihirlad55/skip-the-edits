@@ -63,7 +63,8 @@ h1 {
     width: 24em;
     float: right;
     border: 0.1em solid black;
-    border-left-width: 0.14em;
+    text-align: center;
+    padding-bottom: 1em;
 }
 
 #containerRight h2 {
@@ -71,6 +72,8 @@ h1 {
     font-family: Arial;
     text-align: center;
     padding: 1em;
+    background-color: #4A86E8;
+    color: #FFFFFF;
 }
 
 .container-edit-icon {
@@ -90,6 +93,7 @@ h1 {
 
 .edit-icon:hover {
     opacity: 0.7;
+    transition-duration: 0.25s;
 }
 
 .edit-icon:active {
@@ -114,7 +118,21 @@ h1 {
 }
 
 #txtComment {
-    width: 98.4%;
-    margin-left: 0.1em;
-    margin-right: 0.4em;
+    width: 97%;
+    font-family: Arial;
+}
+
+#btnFinishMarking {
+    margin-top: 1em;
+    background-color: #4f92ff;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1em;
+}
+
+#btnFinishMarking:hover {
+    background-color: #6db7ff;
+    transition-duration: 0.25s;
 }
