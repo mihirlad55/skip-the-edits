@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F7F7F7;
+}
+
+#header-main
+{
+    z-index: 1;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    padding-right: 2em;
+    width: 100%;
+    box-shadow: 1px 0px 5px 1px #0000007a;
+    background-color: #FBFBFB;
+}
+
+#header-secondary {
+    margin: 0;
+    padding: 0;
+    padding-top: 4em;
+    background-color: #4A86E8;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial;
+    color: #FFFFFF;
+    font-size: 2rem;
+    padding: 4rem 0 2rem 0;
+}
+
+h2 {
+    text-align: center;
+    font-family: Arial;
+    color: white;
+    font-size: 1.2rem;
+    padding-bottom: 3.5rem;
+}
+
+.navbar-icon {
+    margin: 0;
+    padding: 0.8em 2em 0.8em 0em;
+    float: right;
+    height: 2.4em;
+    cursor: pointer;
+}
+
+.navbar-icon img {
+    height: inherit
+}
+
+#logo {
+    margin: 0;
+    padding: 0;
+    float: none;
+    height: 4em;
+}
+
+.content::after {
+    display: table;
+}
+
+[class*="col-"] {
+    width: 100%;
+    float: left;
+    padding: 15px;
+}
+
+@media screen and (min-width: 600px) {
+    .col-1 {width: 5%;}
+    .col-2 {width: 10%;}
+    .col-3 {width: 15%;}
+    .col-4 {width: 20%;}
+    .col-5 {width: 25%;}
+    .col-6 {width: 30%;}
+    .col-7 {width: 35%;}
+    .col-8 {width: 40%;}
+    .col-9 {width: 45%;}
+    .col-10 {width: 50%;}
+    .col-11 {width: 55%;}
+    .col-12 {width: 60%;}
+    .col-13 {width: 65%;}
+    .col-14 {width: 70%;}
+    .col-15 {width: 75%;}
+    .col-16 {width: 80%;}
+    .col-17 {width: 85%;}
+    .col-18 {width: 90%;}
+    .col-19 {width: 95%;}
+    .col-20 {width: 100%;}
+    #name {display: block;}
+    #clubs {display: block;}
+    .tile {width: 255px;}
+}
