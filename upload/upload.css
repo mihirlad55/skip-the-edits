@@ -1,0 +1,159 @@
+body {
+    background-color: #F7F7F7;
+}
+
+#header-main
+{
+    z-index: 1;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    padding-right: 2em;
+    width: 100%;
+    box-shadow: 1px 0px 5px 1px #0000007a;
+    background-color: #FBFBFB;
+}
+
+
+#header-secondary {
+    margin: 0;
+    padding: 0;
+    padding-top: 4em;
+    height: 12em;
+    background-color: #4A86E8;
+}
+
+
+h1 {
+    text-align: center;
+    font-family: Arial;
+    color: #FFFFFF;
+    font-size: 2em;
+    line-height: 6em;
+}
+
+
+.navbar-icon {
+    margin: 0;
+    padding: 0.8em 2em 0.8em 0em;
+    float: right;
+    height: 2.4em;
+    cursor: pointer;
+}
+
+.navbar-icon img {
+    height: inherit
+}
+
+
+#logo {
+    margin: 0;
+    padding: 0;
+    float: none;
+    height: 4em;
+}
+
+#iconAvatar {
+    padding: 0.4em 2em 0.4em 0em;
+    height: 3.2em;
+}
+
+#containerLeft {
+    margin: 2em;
+    width: 50em;
+    float: left;
+}
+
+#containerRight {
+    margin: 2em;
+    margin-right: 2em;
+    margin-top: 9.5em;
+    width: 24em;
+    float: right;
+    border: 0.1em solid black;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+#containerRight h2 {
+    font-size: 1.5em;
+    font-family: Arial;
+    text-align: center;
+    padding: 1em;
+    background-color: #4A86E8;
+    color: #FFFFFF;
+}
+
+.container-edit-icon {
+    float: left;
+    width: 6em;
+    background-color: #1955C39C;
+}
+
+
+.edit-icon {
+    display: inline;
+    width: 6em;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+.edit-icon:hover {
+    opacity: 0.7;
+    transition-duration: 0.25s;
+}
+
+.edit-icon:active {
+    opacity: 0.25;
+}
+
+
+#essayTitle {
+    font-family: Arial;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+#essayByline {
+    font-family: Arial;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+#txtComment {
+    width: 97%;
+    margin-top: 4em;
+    font-family: Arial;
+}
+
+#btnFinishMarking {
+    margin-top: 1em;
+    background-color: #4f92ff;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1em;
+}
+
+#btnFinishMarking:hover {
+    background-color: #6db7ff;
+    transition-duration: 0.25s;
+}
+
+#page {
+    background-color: #FFFFFF;
+    width: 40em;
+    height: 51.8em;
+    margin-top: 3em;
+    padding: 5em;
+}
+
+.pageSpan {
+
+}

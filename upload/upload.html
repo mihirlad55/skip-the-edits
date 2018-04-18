@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Upload Essay</title>
+        <link href="../default.css" rel="stylesheet"/>
+        <link href="upload.css" rel="stylesheet"/>
+        <script src="upload.js"></script>
+    </head>
+    <body>
+        <header id="header-main">
+            <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
+            
+            <a class="navbar-icon" id="iconAvatar" href="../..">
+                <img src="../img/avatar.png" />
+            </a>
+            <a class="navbar-icon" id="iconNotification">
+                <img src="../img/notification.png"/>
+            </a>
+            <a class="navbar-icon" id="iconUpload" href="../../upload">
+                <img src="../img/upload.png"/>
+            <a/>
+            <a class="navbar-icon" id="iconHome" href="../../home">
+                <img src="../img/home.png"/>
+            </a>
+        </header>
+        
+        <header id="header-secondary">
+            <h1>View Essay</h1>
+        </header>
+        
+        <form action="../submitEssay.php" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="txtTitle">Title of Essay</label>
+                <input type="text" id="txtTitle" name="title" placeholder="Title">
+            </div>
+            
+            <div>
+                
+                <label for"selectEditorType">Editor</label>
+                <select id="selectEditorType" name="editorType">
+                    <option value="free">Free</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            
+            <textarea id="txtInstructions" placeholder="Assignment Instructions" name="instructions"></textarea>
+            <input id="filePicker" type="file" name="file">
+            <input type="submit" id="btnSubmit">
+        </form>
+    </body>
+</html>
