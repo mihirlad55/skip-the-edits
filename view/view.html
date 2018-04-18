@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>View Essay</title>
+        <link href="../default.css" rel="stylesheet"/>
+        <link href="view.css" rel="stylesheet"/>
+        <script src="view.js"></script>
+    </head>
+    <body>
+        <header id="header-main">
+            <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
+            
+            <a class="navbar-icon" id="iconAvatar" href="../..">
+                <img src="../img/avatar.png" />
+            </a>
+            <a class="navbar-icon" id="iconNotification">
+                <img src="../img/notification.png"/>
+            </a>
+            <a class="navbar-icon" id="iconUpload" href="../../upload">
+                <img src="../img/upload.png"/>
+            <a/>
+            <a class="navbar-icon" id="iconHome" href="../../home">
+                <img src="../img/home.png"/>
+            </a>
+        </header>
+        
+        <header id="header-secondary">
+            <h1>View Essay</h1>
+        </header>
+        
+        <div id="containerLeft">
+            <h2 id="essayTitle">Title</h2>
+            <h3 id="essayByline">Author</h3>
+            
+            <div id="page">
+                <?php
+                    session_start();
+                    
+                    /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
+                    {
+                        session_abort();
+                        die("Not Logged In!");
+                    }*/
+                    
+                    require_once("../dbconnect.php");
+                    
+                    $filePath = "/home/ec2-user/environment/skip-the-edits/files/" . $_GET["id"] . ".txt";
+                    echo readfile($filePath);
+                ?>
+            </div>
+        </div>
+        <div id="containerRight">
+
+        </div>
+    </body>
+</html>
