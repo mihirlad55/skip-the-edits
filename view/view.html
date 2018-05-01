@@ -46,7 +46,7 @@
                     
                     require_once("../dbconnect.php");
                     
-                    $filePath = "/home/ec2-user/environment/skip-the-edits/files/" . $_GET["id"] . ".txt";
+                    $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
                     echo readfile($filePath);
                 ?>
             </div>
