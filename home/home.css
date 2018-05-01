@@ -3,31 +3,29 @@
 }
 
 body {
+    font-family: Arial;
     background-color: #F7F7F7;
 }
 
-#header-main
-{
+/* Header Code */
+
+#header-main {
     z-index: 1;
     position: fixed;
-    margin: 0;
-    padding: 0;
-    padding-right: 2em;
+    padding: 0 1rem 0 0;
     width: 100%;
     box-shadow: 1px 0px 5px 1px #0000007a;
     background-color: #FBFBFB;
+    height: 3.5rem;
 }
 
 #header-secondary {
-    margin: 0;
-    padding: 0;
-    padding-top: 4em;
+    padding-top: 3.5rem;
     background-color: #4A86E8;
 }
 
 h1 {
     text-align: center;
-    font-family: Arial;
     color: #FFFFFF;
     font-size: 2rem;
     padding: 4rem 0 2rem 0;
@@ -35,30 +33,143 @@ h1 {
 
 h2 {
     text-align: center;
-    font-family: Arial;
     color: white;
     font-size: 1.2rem;
-    padding-bottom: 3.5rem;
+    padding: 0 0 3.5rem 0;
+}
+
+h3 {
+    font-family: Arial;
+    font-size: 1.2rem;
+    padding: 0.9375rem;
 }
 
 .navbar-icon {
-    margin: 0;
-    padding: 0.8em 2em 0.8em 0em;
+    padding: 0.75rem 2rem 0.75rem 0;
+    height: 3.5rem;
     float: right;
-    height: 2.4em;
     cursor: pointer;
 }
 
 .navbar-icon img {
-    height: inherit
+    height: 2rem;
 }
 
 #logo {
     margin: 0;
     padding: 0;
     float: none;
-    height: 4em;
+    height: 3.5em;
 }
+
+/* General Boxes */
+
+.rows {
+    margin: auto;
+    padding: 0.9375rem 0.9375rem 0 0.9375rem;
+    max-width: 1300px;
+}
+
+.content {
+    border-radius: 0.125rem;
+    overflow: hidden;
+    text-align: center;
+    color: black;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+}
+
+#essays {
+    display: flex;
+    height: 36rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+.tile {
+    height: 8rem;
+    width: 13rem;
+    flex-grow: 1;
+    cursor: pointer;
+    margin: 0.9375rem;
+    float: left;
+    transition-duration: 0.1s;
+    text-decoration: none;
+}
+
+.tile:hover {
+    transform: scale(1.05);
+}
+
+.tile:active {
+    opacity: 0.8;
+}
+
+/* Search Box */
+
+#search-box {
+    padding: 0 0.9375rem;
+    overflow: hidden;
+}
+
+#searchbar {
+    margin: 0;
+    margin-bottom: 0.9375rem;
+    display: flex;
+    width: 100%;
+}
+
+#searchinput {
+    display: block;
+    float: left;
+    padding: 10px;
+    height: 35px;
+    background-color: rgb(220, 220, 220);
+    border: none;
+    width: 100%;
+}
+
+#searchbutton {
+    cursor: pointer;
+    float: left;
+    background-color: rgb(220, 220, 220);
+}
+
+#searchbutton:active {
+    background-color: rgb(200, 200, 200);
+}
+
+#searchbutton img {
+    display: block;
+    padding: 6px;
+    height: 35px;
+}
+
+.button {
+    border: none;
+    text-align: center;
+    display: block;
+    margin: 0.9375rem auto;
+    width: 100px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(68, 120, 196);
+    transition-duration: 0.1s;
+    padding: 0.625rem;
+    border-radius: 2px;
+}
+
+.button:hover, .button:focus {
+    background-color: dodgerblue;
+}
+
+.boxtitle {
+    margin: 0.75rem 0;
+}
+
+/* Responsive Stuf */
 
 .content::after {
     display: table;
@@ -67,7 +178,7 @@ h2 {
 [class*="col-"] {
     width: 100%;
     float: left;
-    padding: 15px;
+    padding: 0.9375rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -91,7 +202,4 @@ h2 {
     .col-18 {width: 90%;}
     .col-19 {width: 95%;}
     .col-20 {width: 100%;}
-    #name {display: block;}
-    #clubs {display: block;}
-    .tile {width: 255px;}
 }

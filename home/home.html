@@ -1,0 +1,55 @@
+<?php
+    $_POST['retrieveessays'] = 1;
+    include_once('../server.php');
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta enctype="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit an Essay</title>
+    <link href="../default.css" rel="stylesheet"/>
+    <link href="home.css" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="">
+</head>
+<body>
+    <header id="header-main">
+        <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
+        <a class="navbar-icon" id="iconAvatar" href="../..">
+            <img src="../img/avatar.png" />
+        </a>
+        <a class="navbar-icon" id="iconNotification">
+            <img src="../img/notification.png"/>
+        </a>
+        <a class="navbar-icon" id="iconUpload" href="../upload/upload.html">
+            <img src="../img/upload.png"/>
+        <a/>
+        <a class="navbar-icon" id="iconHome" href="../home/home.html">
+            <img src="../img/home.png"/>
+        </a>
+    </header>
+    <header id="header-secondary">
+        <h1>Edit an Essay</h1>
+        <h2><?php echo count($essays) . " Essays found" ?></h2>
+    </header>
+    <div class="rows" id="home">
+        <div class="col-15" style="padding:0">
+            <h3>All Essays</h3>
+            <div id="essays">
+                <?php require_once('loadessays.php') ?>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="content" id="search-box">
+                <p class="boxtitle">Search Essays</p>
+                <span id="searchbar">
+                    <input type="text" id="searchinput" placeholder="Search...">
+                    <span id="searchbutton" onclick=""><img src="../Search Icon.png"></span>
+                </span>
+                <a class="button" onclick="">Filter</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="home.js"></script>
+</html>
