@@ -9,7 +9,7 @@
         <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/62F440EF-138A-EA46-9AED-C5B2A3426326/main.js" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="edit.js"></script>
     </head>
-    <body>
+    <body onload="enableEditMode();">
         <header id="header-main">
             <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
             
@@ -34,10 +34,10 @@
         <div id="containerLeft">
             <h2 id="essayTitle">Title</h2>
             <h3 id="essayByline">Author</h3>
-            
-            <div id="page">
-                <span class="pageSpan"></span>
-            </div>
+
+            <textarea style="display: none;" id="textArea"></textarea>
+            <iframe src="editorFrame.html" name="richTextField" id="richTextField">
+            </iframe>
         </div>
         <div id="containerRight">
             <h2>Mark As</h2>
@@ -55,6 +55,23 @@
          --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div>
             <textarea id="txtComment" type="text" rows="9" placeholder="Add Comment Related to Highlight..."></textarea>
             <button id="btnFinishMarking">Finish Marking</button>
+        </div>
+        
+        <div name="hiddenPage" style="display: none; white-space: pre-wrap;" id="hiddenPage">
+        <?php
+            session_start();
+                
+            /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
+            {
+                session_abort();
+                die("Not Logged In!");
+            }*/
+            
+            require_once("../dbconnect.php");
+            
+            $filePath = "/home/ec2-user/environment/skip-the-edits/files/" . $_GET["id"] . ".txt";
+            echo readfile($filePath);
+        ?>
         </div>
     </body>
 </html>

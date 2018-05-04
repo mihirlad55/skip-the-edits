@@ -58,14 +58,14 @@ h1 {
 
 #containerLeft {
     margin: 2em;
-    width: 40%;
-    background-color: yellow;
+    width: 50em;
     float: left;
 }
 
 #containerRight {
     margin: 2em;
     margin-right: 2em;
+    margin-top: 9.5em;
     width: 24em;
     float: right;
     border: 0.1em solid black;
@@ -142,4 +142,16 @@ h1 {
 #btnFinishMarking:hover {
     background-color: #6db7ff;
     transition-duration: 0.25s;
+}
+
+#richTextField {
+    background-color: #FFFFFF;
+    width: 48em;
+    height: 51.8em;
+    margin-top: 3em
+}
+
+#page {
+    white-space: pre-wrap;
+    padding: 5em;
 }
