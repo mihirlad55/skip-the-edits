@@ -31,23 +31,36 @@
         </header>
         
         <form action="../submitEssay.php" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="txtTitle">Title of Essay</label>
-                <input type="text" id="txtTitle" name="title" placeholder="Title">
-            </div>
             
-            <div>
+            <section>
+                <div class="control-group">
+                    <label for="txtTitle">Title of Essay</label>
+                    <input type="text" id="txtTitle" name="title" placeholder="Title">
+                </div>
                 
-                <label for"selectEditorType">Editor</label>
-                <select id="selectEditorType" name="editorType">
-                    <option value="free">Free</option>
-                    <option value="premium">Premium</option>
-                </select>
-            </div>
+                <div class="control-group">
+                    <label for"selectEditorType">Editor</label>
+                    <select id="selectEditorType" name="editorType">
+                        <option value="free">Free</option>
+                        <option value="premium">Premium</option>
+                    </select>
+                </div>
+            </section>
             
-            <textarea id="txtInstructions" placeholder="Assignment Instructions" name="instructions"></textarea>
-            <input id="filePicker" type="file" name="file">
-            <input type="submit" id="btnSubmit">
+            <section>
+                <div class="control-group-instructions">
+                    <label for="txtInstructions">Instructions</label>
+                    <textarea id="txtInstructions" rows="8" placeholder="Assignment Instructions" name="instructions"></textarea>
+                </div>
+            </section>
+            
+            <section>
+                <div class="control-group-file">
+                    <label>File</label>
+                    <input id="filePicker" type="file" name="file">
+                </div>
+                <input type="submit" id="btnSubmit">
+            </section>
         </form>
     </body>
 </html>
