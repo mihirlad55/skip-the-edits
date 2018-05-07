@@ -6,6 +6,10 @@ body {
     background-color: #F3F3F3;
 }
 
+a {
+    text-decoration: none;
+}
+
 #nav {
     z-index: 1;
     position: fixed;
@@ -23,23 +27,67 @@ body {
     padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 
-#nav input {
+#nav a {
+    font-family: Arial;
     float: right;
-    
+    display: block;
+    background-color: #FBFBFB;
+    border: none;
+    font-size: 22px;
+    padding: 0.75rem;
+    margin: 0.75rem;
+    outline: none;
+    text-decoration: none;
+}
+
+#supbut {
+    background-color: #4A86E8 !important;
+    color: #FFFFFF;
+}
+
+#logbut {
+    color: #4A86E8;
+}
+
+h1, h2 {
+    display: table;
 }
 
 h1 {
-    margin-top: 60rem;
+    padding-top: 20rem !important;
+    font-size: 5rem;
+    padding-bottom: 2rem;
+}
+
+div {
+    width: 50%;
+    float: left;
+    font-family: Arial;
+}
+
+#main{
+    padding-left: 10rem;
+    font-size: 4rem;
+}
+
+#gtstrt{
+    display: inline-block;
+    border: none;
+    outline: none;
+    margin-top: 2rem;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: #4A86E8;
+    color: #FFFFFF;
 }
 
 #main {
+    display: block;
 }
 
 #man {
-    display: inline;
-    height: 42%;
-    width: 42%;
+    width: 89%;
     float: right;
-    padding-top: 10rem;
     padding-right: 11rem;
+    padding-top: 12rem;
 } 
