@@ -6,6 +6,11 @@ function enableEditMode() {
     hiddenPage.innerHTML = "";
 }
 
-function execCmd (command) {
-    richTextField.document.execCommand(command, false, null);
+function execCmd (command, args) {
+    richTextField.document.execCommand(command, false, args);
+}
+
+function highlight(color)
+{
+    execCmd('backColor', color);
 }

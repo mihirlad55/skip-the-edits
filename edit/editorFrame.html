@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head></head>
-    <body>
-        <div id="page" style="white-space: pre-wrap; padding: 5em;" name="page" contentEditable="false"></div>
+    <body onload="document.onkeydown = function(event)
+    {
+        event.preventDefault();
+    };">
+        <div id="page" style="white-space: pre-wrap; padding: 5em;" name="page"></div>
     </body>
 </html>

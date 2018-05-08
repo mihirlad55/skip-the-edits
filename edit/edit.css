@@ -71,6 +71,7 @@ h1 {
     border: 0.1em solid black;
     text-align: center;
     padding-bottom: 1em;
+    padding-left: 0.05em;
 }
 
 #containerRight h2 {
