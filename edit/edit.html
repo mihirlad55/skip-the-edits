@@ -33,8 +33,48 @@
         </header>
         
         <div id="containerLeft">
-            <h2 id="essayTitle">Title</h2>
-            <h3 id="essayByline">Author</h3>
+            <h2 id="essayTitle">
+                <?php
+                    require_once("../dbconnect.php");
+                    
+                    $queryString = "SELECT title FROM Essays WHERE id=".$conn->real_escape_string($_GET["id"]);
+                    $result;
+                    
+                    if (! ($result = $conn->query($queryString)) )
+                    {
+                        session_abort();
+                        die($conn->error());
+                    }
+                    
+                    echo($result->fetch_array()["title"]);
+                ?>
+            </h2>
+            <h3 id="essayByline">By: 
+                <?php
+                    require_once("../dbconnect.php");
+                    
+                    $queryString = "SELECT userId FROM Essays WHERE id=".$conn->real_escape_string($_GET["id"]);
+                    $result;
+                    
+                    if (! ($result = $conn->query($queryString)) )
+                    {
+                        session_abort();
+                        die($conn->error());
+                    }
+                    
+                    $queryString = "SELECT firstName, lastName FROM Users WHERE id=". $result->fetch_array()["userId"];
+                    
+                    if (! ($result = $conn->query($queryString)) )
+                    {
+                        session_abort();
+                        die($conn->error());
+                    }
+                    
+                    $assoc_array = $result->fetch_array();
+                    
+                    echo($assoc_array["firstName"]. " ". $assoc_array["lastName"]);
+                ?>
+            </h3>
 
             <textarea style="display: none;" id="textArea"></textarea>
             <iframe src="editorFrame.html" name="richTextField" id="richTextField">
@@ -69,9 +109,9 @@
                 die("Not Logged In!");
             }*/
             
-            require_once("../dbconnect.php");
             
             $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
+            
             echo readfile($filePath);
         ?>
         </div>
