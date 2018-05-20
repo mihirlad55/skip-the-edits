@@ -20,12 +20,12 @@
     
     require_once("dbconnect.php");
 
-    $username = $_SESSION["username"];
+    $userId = $_SESSION["userId"];
     $title = $conn->real_escape_string($_POST["title"]);
     $editorType = $conn->real_escape_string($_POST["editorType"]);
     $instructions = $conn->real_escape_string($_POST["instructions"]);
 
-    $queryString = "INSERT INTO Essays VALUES ('NULL', '$username', '$title', '$editorType', '$instructions')";
+    $queryString = "INSERT INTO Essays VALUES ('NULL', '$userId', '$title', '$editorType', '$instructions')";
     if (!$conn->query($queryString))
     {
         session_abort();
