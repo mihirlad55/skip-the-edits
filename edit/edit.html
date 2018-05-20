@@ -6,8 +6,9 @@
         <title>Edit an Essay</title>
         <link href="../default.css" rel="stylesheet"/>
         <link href="edit.css" rel="stylesheet"/>
-        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/62F440EF-138A-EA46-9AED-C5B2A3426326/main.js" charset="UTF-8"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="edit.js"></script>
+        <script src="../general.js"></script>
     </head>
     <body onload="enableEditMode();">
         <header id="header-main">
@@ -40,23 +41,23 @@
             </iframe>
         </div>
         
+        
         <div id="containerRight">
             <h2>Mark As</h2>
-            <div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div><!--
-         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png"></div>
             <textarea id="txtComment" type="text" rows="9" placeholder="Add Comment Related to Highlight..."></textarea>
+            <div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png" onclick="createChangeHTML(EnumChangeType.GRAMMAR);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/diction.png" onclick="createChangeHTML(EnumChangeType.DICTION);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/cliche.png" onclick="createChangeHTML(EnumChangeType.CLICHE);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/length.png" onclick="createChangeHTML(EnumChangeType.LENGTH);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/overused.png" onclick="createChangeHTML(EnumChangeType.OVERUSED);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/plagiarism.png" onclick="createChangeHTML(EnumChangeType.PLAGIARISM);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/pronoun.png" onclick="createChangeHTML(EnumChangeType.PRONOUN);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/repeats.png" onclick="createChangeHTML(EnumChangeType.REPEATS);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/style.png" onclick="createChangeHTML(EnumChangeType.STYLE);"></div><!--
+         --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/thesaurus.png" onclick="createChangeHTML(EnumChangeType.THESAURUS);"></div>
             <button id="btnFinishMarking">Finish Marking</button>
         </div>
+        
         
         <div name="hiddenPage" style="display: none; white-space: pre-wrap;" id="hiddenPage">
         <?php
