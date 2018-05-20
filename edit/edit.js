@@ -167,8 +167,3 @@ function sortChanges()
         else cElement.style.top = changesTopPos[cId].toString() + "px";
     }
 }
-
-function getSortedChangeIndex(changes, pivot)
-{
-
-}
