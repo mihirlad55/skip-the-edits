@@ -167,3 +167,14 @@ function sortChanges()
         else cElement.style.top = changesTopPos[cId].toString() + "px";
     }
 }
+
+function postChanges()
+{
+    $.ajax({
+        url: "../php/postChanges.php",
+        method: "POST",
+        data: {
+            "changes": changes
+        }
+    });
+}
