@@ -44,7 +44,7 @@
                         die("Not Logged In!");
                     }*/
                     
-                    require_once("../dbconnect.php");
+                    require_once("../php/dbconnect.php");
                     
                     $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
                     echo readfile($filePath);

@@ -1,6 +1,6 @@
 <?php
     $_POST['retrieveessays'] = 1;
-    include_once('../server.php');
+    include_once('../php/server.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,7 +36,7 @@
         <div class="col-15" style="padding:0">
             <h3>All Essays</h3>
             <div id="essays">
-                <?php require_once('loadessays.php') ?>
+                <?php require_once('../php/loadessays.php') ?>
             </div>
         </div>
         <div class="col-5">

@@ -35,7 +35,7 @@
         <div id="containerLeft">
             <h2 id="essayTitle">
                 <?php
-                    require_once("../dbconnect.php");
+                    require_once("../php/dbconnect.php");
                     
                     $queryString = "SELECT title FROM Essays WHERE id=".$conn->real_escape_string($_GET["id"]);
                     $result;
@@ -51,7 +51,7 @@
             </h2>
             <h3 id="essayByline">By: 
                 <?php
-                    require_once("../dbconnect.php");
+                    require_once("../php/dbconnect.php");
                     
                     $queryString = "SELECT userId FROM Essays WHERE id=".$conn->real_escape_string($_GET["id"]);
                     $result;

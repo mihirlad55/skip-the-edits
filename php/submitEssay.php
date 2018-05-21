@@ -34,12 +34,12 @@
     
     $filename = $conn->insert_id;
     
-    $target = "/home/ec2-user/environment/skip-the-edits/files/$filename.txt";
+    $target = "files/$filename.txt";
 
 
     if ( $info['extension'] == "docx" || $info['extension'] == 'doc')
     {
-        $file = fopen("/home/ec2-user/environment/skip-the-edits/files/$filename.txt", "w");
+        $file = fopen("files/$filename.txt", "w");
         if ( $info['extension'] == "docx") fwrite($file, readDocx($_FILES['file']['tmp_name']));
         else fwrite($file, readDoc($_FILES['file']['tmp_name']));
         fclose($file);
