@@ -5,7 +5,7 @@ function getCookie(name)
 	{
 		if (cookieArray[index].indexOf(name) != -1)
 		{
-			return cookieArray[index].replace("name=", "").trim().replace(/\+/g, " ");
+			return cookieArray[index].replace(name + "=", "").trim().replace(/\+/g, " ");
 		}
 	}
 }
@@ -25,4 +25,18 @@ function formatDate(date, format)
 	}
 		
 	return format.replace("%month", monthList[date.getMonth()]).replace("%day", dayList[date.getDay()]).replace("%year", date.getFullYear()).replace("%hour", hour).replace("%period", period).replace("%minute", (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()).replace("%second", date.getSeconds()).replace("%date", date.getDate());
+}
+
+function getGetVariable (variable)
+{
+	var getUri = document.location.href.substr(document.location.href.indexOf("?") + 1);
+	var variables = getUri.split("&");
+	
+	for (var i = 0; i < variables.length; i++)
+	{
+		if (variables[i].indexOf(variable) != -1)
+		{
+			return variables[i].replace(variable + "=", "");
+		}
+	}
 }
