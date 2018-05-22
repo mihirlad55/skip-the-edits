@@ -47,10 +47,6 @@ function execCmd (command, args) {
     richTextField.document.execCommand(command, false, args);
 }
 
-function highlight(color)
-{
-    execCmd('backColor', color);
-}
 
 function getSelectionRange()
 {
@@ -84,7 +80,6 @@ function createChangeHTML(type)
     var change = {
         id: changes.length,
         type: getEnumChangeTypeString(type),
-        date: new Date().getTime(),
         selection: richTextField.document.getElementById("page").innerText.substr(startOffset, endOffset - startOffset + 1),
         startOffset: startOffset,
         endOffset: endOffset,
@@ -121,7 +116,7 @@ function createChangeHTML(type)
     richTextField.getSelection().removeAllRanges();
   
     var HTML = 
-                "<div class='change' style='top: " + changesTopPos[id].toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
+                "<div class='change' contentEditable='false' style='top: " + changesTopPos[id].toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
                     "<div class='change-main-content'>" +
                         "<img class='change-picture' src='../img/edit-icons/" + getEnumChangeTypeString(type).toLowerCase() + ".png'>" +
                         "<p class='change-selection'>" + selectionText  + "</p>" +
@@ -132,7 +127,6 @@ function createChangeHTML(type)
     var containerChanges = richTextField.document.getElementById("containerChanges");
     containerChanges.innerHTML += HTML;
     
-    containerChanges.lastChild.setAttribute("contentEditable", "false");
     
     if (changes.length > 1)
     {
@@ -171,10 +165,14 @@ function sortChanges()
 function postChanges()
 {
     $.ajax({
-        url: "../php/postChanges.php",
+        url: "postChanges.php",
         method: "POST",
         data: {
-            "changes": changes
+            "changes": JSON.stringify(changes),
+            "essayId": getGetVariable("id")
+        },
+        success: function(response) {
+            document.location.href = "../view?id=" + getGetVariable("id").toString();
         }
     });
 }
