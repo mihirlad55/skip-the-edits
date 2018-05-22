@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="viewerFrame.css" rel="stylesheet">
+        <script src="viewerFrame.js" type="text/javascript"></script>
+    </head>
+    <body onload="document.onkeydown = function(event)
+    {
+        event.preventDefault();
+    };
+    
+    document.ondrop = function(event)
+    {
+        event.preventDefault();
+    };">
+        <div id="documentContainer">
+            <div id="page" name="page"></div>
+        
+            <div id="containerChanges">
+            <!--<div class="change" style="display: none">
+                    <div class="change-main-content">
+                        <img class="change-icon">
+                        <h4 class="change-type"></h4>
+                        <p class="change-selection"></p>
+                    </div>
+                    <p class="change-comment"></p>
+                </div>-->
+            </div>
+            
+        </div>
+    </body>
+</html>

@@ -7,8 +7,14 @@
         <link href="../default.css" rel="stylesheet"/>
         <link href="view.css" rel="stylesheet"/>
         <script src="view.js"></script>
+        <script>
+                allChanges = JSON.parse('<?php require_once("getChanges.php"); ?>');
+                editors = JSON.parse('<?php require_once("getUsers.php"); ?>');
+                document.head.removeChild(document.head.getElementsByTagName("script")[document.head.getElementsByTagName("script").length - 1]);
+        </script>
     </head>
     <body>
+    <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges();">
         <header id="header-main">
             <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
             
@@ -31,28 +37,71 @@
         </header>
         
         <div id="containerLeft">
-            <h2 id="essayTitle">Title</h2>
-            <h3 id="essayByline">Author</h3>
-            
-            <div id="page">
+            <h2 id="essayTitle">
                 <?php
-                    session_start();
-                    
-                    /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
-                    {
-                        session_abort();
-                        die("Not Logged In!");
-                    }*/
-                    
                     require_once("../php/dbconnect.php");
                     
-                    $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
-                    echo readfile($filePath);
+                    $queryString = "SELECT title FROM Essays WHERE id=".$conn->real_escape_string($_GET["id"]);
+                    $result;
+                    
+                    if (! ($result = $conn->query($queryString)) )
+                    {
+                        session_abort();
+                        die($conn->error());
+                    }
+                    
+                    echo($result->fetch_array()["title"]);
                 ?>
-            </div>
-        </div>
-        <div id="containerRight">
+            </h2>
+            <h3 id="essayByline">By: 
+                <?php
+                    require_once("../php/dbconnect.php");
+                    
+                    $queryString = "SELECT userId FROM Essays WHERE id=".$conn->real_escape_string($_GET["id"]);
+                    $result;
+                    
+                    if (! ($result = $conn->query($queryString)) )
+                    {
+                        session_abort();
+                        die($conn->error());
+                    }
+                    
+                    $queryString = "SELECT firstName, lastName FROM Users WHERE id=". $result->fetch_array()["userId"];
+                    
+                    if (! ($result = $conn->query($queryString)) )
+                    {
+                        session_abort();
+                        die($conn->error());
+                    }
+                    
+                    $assoc_array = $result->fetch_array();
+                    
+                    echo($assoc_array["firstName"]. " ". $assoc_array["lastName"]);
+                ?>
+            </h3>
 
+            <h4>Editor: </h4><select id="dropDownEditor" onchange="refreshChanges();"></select>
+            <textarea style="display: none;" id="textArea"></textarea>
+            <iframe src="viewerFrame.html" name="richTextField" id="richTextField">
+            </iframe>
+        </div>
+        
+        
+        <div name="hiddenPage" style="display: none; white-space: pre-wrap;" id="hiddenPage">
+        <?php
+            session_start();
+                
+            /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
+            {
+                session_abort();
+                die("Not Logged In!");
+            }*/
+            
+            
+            $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
+            
+            echo readfile($filePath);
+        ?>
         </div>
     </body>
 </html>

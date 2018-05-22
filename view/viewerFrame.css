@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    background-color: rgb(238, 238, 238);
+}
+
+#page {
+    white-space: pre-wrap;
+    padding: 5em;
+    width: 40em;
+    background-color: #FFFFFF;
+    float: left;
+}
+
+#documentContainer {
+    background-color: rgb(238, 238, 238);
+}
+
+#containerChanges {
+    float: left;
+    margin-top: 9.5em;
+    width: 16em;
+    min-height: 2em;
+    background-color: rgb(238, 238, 238);
+}
+
+.change {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    background-color: #FFFFFF;
+    position: absolute;
+    width: 18rem;
+}
+
+.change-type {
+    font-size: 1rem;
+    font-family: arial;
+}
+
+.change-comment {
+    font-family: arial;
+    background-color: rgb(245, 245, 245);
+    padding: 0.4rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.change-main-content {
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+}
+
+.change-picture {
+    float: left;
+    height: 3rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.change-selection {
+    margin-top: 0.4rem;
+    font-family: arial;
+    font-size: 0.84rem;
+}
