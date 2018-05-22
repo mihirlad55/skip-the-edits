@@ -18,7 +18,7 @@
     
     if (!($_FILES['file']['type'] == "text/plain" || $info['extension'] == "docx" || $info['extension'] == 'doc')) die("Error: Not a supported file format.");
     
-    require_once("dbconnect.php");
+    require_once("../php/dbconnect.php");
 
     $userId = $_SESSION["userId"];
     $title = $conn->real_escape_string($_POST["title"]);
@@ -34,12 +34,12 @@
     
     $filename = $conn->insert_id;
     
-    $target = "files/$filename.txt";
+    $target = "../files/$filename.txt";
 
 
     if ( $info['extension'] == "docx" || $info['extension'] == 'doc')
     {
-        $file = fopen("files/$filename.txt", "w");
+        $file = fopen($target, "w");
         if ( $info['extension'] == "docx") fwrite($file, readDocx($_FILES['file']['tmp_name']));
         else fwrite($file, readDoc($_FILES['file']['tmp_name']));
         fclose($file);
