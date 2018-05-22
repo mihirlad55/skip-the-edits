@@ -1,0 +1,44 @@
+<?php include_once '../server.php' ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta enctype="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Skip the Edits</title>
+    <link href="../default.css" rel="stylesheet"/>
+    <link href="register.css" rel="stylesheet"/>
+    <link rel="icon" type="image/jpg" href="../favicon.jpg">
+</head>
+<body id="registerbody">
+    <div class="rows register createpost">
+        <div class="col-20">
+            <form method="post">
+                <p>Username:</p>
+                <input type="text" name="username" autocomplete="off">
+                <p>Password:</p>
+                <input type="password" name="password">
+                <p>Gender:</p>
+                <select name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+                <p>Grade:</p>
+                <select name="grade">
+                    <option value="Junior">Junior (9 & 10)</option>
+                    <option value="Senior">Senior (11 & 12)</option>
+                </select>
+                <p>I am a:</p>
+                <select name="acctype">
+                    <option>Student</option>
+                    <option>Teacher</option>
+                </select>
+                <br><br>
+                <input type="submit" value="Register" name="register" id="submit">
+                <br>
+            </form>
+            <a href="index.php" class="link">Already have an account?</a>
+            <br>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,16 +9,6 @@ body {
 
 /* Header Code */
 
-#header-main {
-    z-index: 1;
-    position: fixed;
-    padding: 0 1rem 0 0;
-    width: 100%;
-    box-shadow: 1px 0px 5px 1px #0000007a;
-    background-color: #FBFBFB;
-    height: 3.5rem;
-}
-
 #header-secondary {
     padding-top: 3.5rem;
     background-color: #4A86E8;
@@ -44,24 +34,6 @@ h3 {
     padding: 0.9375rem;
 }
 
-.navbar-icon {
-    padding: 0.75rem 2rem 0.75rem 0;
-    height: 3.5rem;
-    float: right;
-    cursor: pointer;
-}
-
-.navbar-icon img {
-    height: 2rem;
-}
-
-#logo {
-    margin: 0;
-    padding: 0;
-    float: none;
-    height: 3.5em;
-}
-
 /* General Boxes */
 
 .rows {
@@ -84,12 +56,16 @@ h3 {
     height: 36rem;
     flex-wrap: wrap;
     justify-content: flex-start;
-    overflow-y: scroll;
+    overflow: hidden;
+}
+
+.locked {
+    overflow-y: scroll !important;
 }
 
 .tile {
     height: 8rem;
-    width: 13rem;
+    width: 14rem;
     flex-grow: 1;
     cursor: pointer;
     margin: 0.9375rem;
@@ -104,6 +80,10 @@ h3 {
 
 .tile:active {
     opacity: 0.8;
+}
+
+.tile:empty {
+    height: 0;
 }
 
 /* Search Box */
@@ -147,15 +127,15 @@ h3 {
 }
 
 .button {
-    border: none;
-    text-align: center;
     display: block;
-    margin: 0.9375rem auto;
-    width: 100px;
     font-size: 14px;
     color: white;
+    border: none;
+    text-align: center;
+    margin: 0.9375rem auto;
+    max-width: 100px;
     cursor: pointer;
-    background-color: rgb(68, 120, 196);
+    background-color: #4a86e8;
     transition-duration: 0.1s;
     padding: 0.625rem;
     border-radius: 2px;
@@ -169,7 +149,7 @@ h3 {
     margin: 0.75rem 0;
 }
 
-/* Responsive Stuf */
+/* Responsive Stuff */
 
 .content::after {
     display: table;
@@ -177,7 +157,7 @@ h3 {
 
 [class*="col-"] {
     width: 100%;
-    float: left;
+    float: right;
     padding: 0.9375rem;
 }
 
