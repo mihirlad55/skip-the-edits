@@ -114,6 +114,7 @@ function createChangeHTML(type)
     execCmd("undo", "");
     execCmd("foreColor", "#0abb00");
     richTextField.getSelection().removeAllRanges();
+    txtComment.value = "";
   
     var HTML = 
                 "<div class='change' contentEditable='false' style='top: " + changesTopPos[id].toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
