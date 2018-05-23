@@ -17,6 +17,8 @@ var EnumChangeType = {
 };
 
 
+window.onbeforeunload = function () { return true; };
+
 function getEnumChangeTypeString(type)
 {
     switch (type)
@@ -165,6 +167,8 @@ function sortChanges()
 
 function postChanges()
 {
+    window.onbeforeunload = null;
+    confirm("Are you sure you are finished marking?");
     $.ajax({
         url: "postChanges.php",
         method: "POST",
