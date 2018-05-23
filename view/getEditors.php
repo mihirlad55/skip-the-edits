@@ -15,6 +15,7 @@
     
     foreach ($result as $row)
     {
+        $row["id"] = intval($row["id"]);
         array_push($users, $row);
     }
     

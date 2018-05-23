@@ -16,7 +16,12 @@
     
     while ($row = $result->fetch_assoc())
     {
+        $row["id"] = intval($row["id"]);
+        $row["editorId"] = intval($row["editorId"]);
+        $row["startOffset"] = intval($row["startOffset"]);
+        $row["endOffset"] = intval($row["endOffset"]); 
         array_push($changes, $row);
     }
+    
     echo(json_encode($changes));
 ?>
