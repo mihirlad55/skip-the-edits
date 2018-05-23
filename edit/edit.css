@@ -127,13 +127,13 @@ h1 {
     line-height: 1.5em;
 }
 
-#txtComment {
+textarea {
     width: 97%;
     margin-top: 2em;
     font-family: Arial;
 }
 
-#btnFinishMarking {
+button {
     margin-top: 1em;
     background-color: #4f92ff;
     color: #FFFFFF;
@@ -143,7 +143,7 @@ h1 {
     font-size: 1em;
 }
 
-#btnFinishMarking:hover {
+button:hover {
     background-color: #6db7ff;
     transition-duration: 0.25s;
 }
@@ -154,4 +154,13 @@ h1 {
     height: 51.8em;
     margin-top: 3em;
     box-shadow: 1px 1px 1px black;
+}
+
+#panelFinalMessage {
+    display: none;
+}
+
+#textAreaCounter {
+    font-family: arial;
+    margin-top: 1rem;
 }

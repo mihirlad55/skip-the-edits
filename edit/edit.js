@@ -165,6 +165,34 @@ function sortChanges()
     }
 }
 
+function showPanelFinalMessage()
+{
+    document.getElementById("panelMark").style.display = "none";
+    document.getElementById("panelFinalMessage").style.display = "block";
+    updateCharacterCounter();
+}
+
+function showPanelMark()
+{
+    document.getElementById("panelMark").style.display = "block";
+    document.getElementById("panelFinalMessage").style.display = "none";
+    updateCharacterCounter();
+}
+
+
+function updateCharacterCounter()
+{
+    if (document.getElementById("panelMark").style.display != "none")
+    {
+        document.getElementById("textAreaCounter").innerHTML = (150 - txtComment.value.length).toString() + " Characters Left";
+    }
+    else if (document.getElementById("panelFinalMessage").style.display != "none")
+    {
+        document.getElementById("textAreaCounter").innerHTML = (300 - txtFinalMessage.value.length).toString() + " Characters Left";
+    }
+}
+
+
 function postChanges()
 {
     window.onbeforeunload = null;
@@ -174,6 +202,7 @@ function postChanges()
         method: "POST",
         data: {
             "changes": JSON.stringify(changes),
+            "message": txtFinalMessage.value,
             "essayId": getGetVariable("id")
         },
         success: function(response) {

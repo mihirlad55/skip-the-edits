@@ -12,6 +12,8 @@
     
     require_once("../php/dbconnect.php");
     
+    $message = $conn->real_escape_string($_POST["message"]);
+        
     $queryString = "INSERT INTO Edits (essayId, editorId) VALUES (${essayId}, ${editorId})";
     
     if (!$conn->query($queryString)) die($conn->error());
@@ -33,7 +35,10 @@
         $queryString = "INSERT INTO Changes (editId, type, startOffset, endOffset, comment)
                                     VALUES (${editId}, '${change['type']}', ${change['startOffset']}, ${change['endOffset']}, '${change['comment']}')";
 
-
         if (!$conn->query($queryString)) die($conn->error());
     }
+    
+    $queryString = "INSERT INTO EditMessages (editId, message) VALUES (${editId}, '${message}')";
+        
+    if (!$conn->query($queryString)) die($conn->error());
 ?>
