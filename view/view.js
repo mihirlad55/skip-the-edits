@@ -113,6 +113,7 @@ function refreshChanges()
             selection = pageHTML.substr(change.startOffset, change.endOffset - change.startOffset + 1).replace("\t", "").replace("\r", "").replace("\n", "");
             
             if (selection.length > 40) change.condensedSelection = selection.substr(0, 20) + "..." + selection.substr(selection.length - 21);
+            else change.condensedSelection = selection;
             
             changes.push(change);
         }

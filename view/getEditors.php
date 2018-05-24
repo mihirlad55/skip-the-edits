@@ -6,30 +6,16 @@
     
     $essayId = $conn->real_escape_string($_GET["id"]);
     
-    $query = "SELECT DISTINCT editorId FROM Changes WHERE essayId=$essayId";
     
-    $result;
-    
-    if ( !($result = $conn->query($query)) ) die($conn->error());
-    
-    $resultArray = $result->fetch_all();
-    $userIds = Array();
-    
-    $query = "SELECT id, firstName, lastName FROM Users WHERE id=";
-    
-    foreach ($result as $row)
-    {
-        $query .= strval($row["editorId"]) . " OR id=";
-    }
-    unset($row);
-    
-    $query = substr($query, 0, -7);
+    $query = "SELECT DISTINCT Users.id, Users.firstName, Users.lastName FROM Edits INNER JOIN Users ON Edits.editorId = Users.id WHERE essayId=${essayId}";
     
     if ( !($result = $conn->query($query)) ) die($conn->error());
     
     $users = Array();
-    while ($row = $result->fetch_assoc())
+    
+    foreach ($result as $row)
     {
+        $row["id"] = intval($row["id"]);
         array_push($users, $row);
     }
     

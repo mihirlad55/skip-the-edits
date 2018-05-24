@@ -6,7 +6,7 @@
     
     $essayId = $conn->real_escape_string($_GET["id"]);
     
-    $query = "SELECT id, editorId, timestampCreated, type, startOffset, endOffset, comment FROM Changes WHERE essayId=$essayId";
+    $query = "SELECT Changes.id, Edits.editorId, Changes.type, Changes.startOffset, Changes.endOffset, Changes.comment FROM Edits INNER JOIN Changes ON Edits.id = Changes.editId  WHERE Edits.essayId=${essayId}";
     
     $result;
     
@@ -16,7 +16,12 @@
     
     while ($row = $result->fetch_assoc())
     {
+        $row["id"] = intval($row["id"]);
+        $row["editorId"] = intval($row["editorId"]);
+        $row["startOffset"] = intval($row["startOffset"]);
+        $row["endOffset"] = intval($row["endOffset"]); 
         array_push($changes, $row);
     }
+    
     echo(json_encode($changes));
 ?>

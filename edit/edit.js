@@ -17,6 +17,8 @@ var EnumChangeType = {
 };
 
 
+window.onbeforeunload = function () { return true; };
+
 function getEnumChangeTypeString(type)
 {
     switch (type)
@@ -66,12 +68,21 @@ function createChangeHTML(type)
 
     if (richTextField.document.getElementById("page").getElementsByTagName("font")[0])
     {
-        while ( currentSibling != selectionStartElement )
+        while ( currentSibling != selectionStartElement)
         {
             if (currentSibling.nodeName == "#text") totalStartOffset += currentSibling.length;
-            else if (currentSibling.nodeName == "FONT") totalStartOffset += currentSibling.innerText.length;
-            currentSibling = currentSibling.nextSibling;
-        };
+            
+            if (!currentSibling.length && currentSibling.firstChild)
+            {
+                currentSibling = currentSibling.firstChild;
+            }
+            else if (!currentSibling.nextSibling && currentSibling.parentNode != richTextField.document.getElementById("page"))
+            {
+                if (currentSibling.parentNode.nextSibling) currentSibling = currentSibling.parentNode.nextSibling;
+                else break;
+            }
+            else currentSibling = currentSibling.nextSibling;
+        }
     }
     
     startOffset += totalStartOffset;
@@ -110,10 +121,14 @@ function createChangeHTML(type)
     else selectionText = scrubbedSelection;
     
     execCmd("backColor", "#FFFFFE");
-    changesTopPos.push(richTextField.document.getElementById("page").getElementsByTagName("span")[0].offsetTop);
+    
+    changesTopPos.push(richTextField.document.getElementById("page").querySelector("[style='background-color: rgb(255, 255, 254);'").offsetTop);
+
     execCmd("undo", "");
     execCmd("foreColor", "#0abb00");
     richTextField.getSelection().removeAllRanges();
+    txtComment.value = "";
+    updateCharacterCounter();
   
     var HTML = 
                 "<div class='change' contentEditable='false' style='top: " + changesTopPos[id].toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
@@ -162,13 +177,44 @@ function sortChanges()
     }
 }
 
+function showPanelFinalMessage()
+{
+    document.getElementById("panelMark").style.display = "none";
+    document.getElementById("panelFinalMessage").style.display = "block";
+    updateCharacterCounter();
+}
+
+function showPanelMark()
+{
+    document.getElementById("panelMark").style.display = "block";
+    document.getElementById("panelFinalMessage").style.display = "none";
+    updateCharacterCounter();
+}
+
+
+function updateCharacterCounter()
+{
+    if (document.getElementById("panelMark").style.display != "none")
+    {
+        document.getElementById("textAreaCounter").innerHTML = (150 - txtComment.value.length).toString() + " Characters Left";
+    }
+    else if (document.getElementById("panelFinalMessage").style.display != "none")
+    {
+        document.getElementById("textAreaCounter").innerHTML = (300 - txtFinalMessage.value.length).toString() + " Characters Left";
+    }
+}
+
+
 function postChanges()
 {
+    window.onbeforeunload = null;
+    confirm("Are you sure you are finished marking?");
     $.ajax({
         url: "postChanges.php",
         method: "POST",
         data: {
             "changes": JSON.stringify(changes),
+            "message": txtFinalMessage.value,
             "essayId": getGetVariable("id")
         },
         success: function(response) {
