@@ -85,7 +85,7 @@
         <div id="containerRight">
             <div id="panelMark">
                 <h2>Mark As</h2>
-                <textarea id="txtComment" type="text" rows="9" placeholder="Add Comment Related to Highlight..." onkeydown="updateCharacterCounter();" onkeyup="updateCharacterCounter();"></textarea>
+                <textarea id="txtComment" type="text" rows="9" placeholder="Add Comment Related to Highlight..." onchange="updateCharacterCounter();" onkeydown="updateCharacterCounter();" onkeyup="updateCharacterCounter();"></textarea>
                 <div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png" onclick="createChangeHTML(EnumChangeType.GRAMMAR);"></div><!--
              --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/diction.png" onclick="createChangeHTML(EnumChangeType.DICTION);"></div><!--
              --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/cliche.png" onclick="createChangeHTML(EnumChangeType.CLICHE);"></div><!--
@@ -100,7 +100,7 @@
             </div>
             <div id="panelFinalMessage">
                 <h2>Finish Editing</h2>
-                <textarea id="txtFinalMessage" type="text" rows="9" placeholder="Final Edit Message..." onkeydown="updateCharacterCounter();" onkeyup="updateCharacterCounter();"></textarea>
+                <textarea id="txtFinalMessage" type="text" rows="9" placeholder="Final Edit Message..." onchange="updateCharacterCounter();" onkeydown="updateCharacterCounter();" onkeyup="updateCharacterCounter();"></textarea>
                 <button id="btnShowPanelMark" onclick="showPanelMark();">Back</button>
                 <button id="btnSubmitChanges" onclick="postChanges();">Submit Edits</button>
             </div>

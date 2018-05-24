@@ -68,12 +68,21 @@ function createChangeHTML(type)
 
     if (richTextField.document.getElementById("page").getElementsByTagName("font")[0])
     {
-        while ( currentSibling != selectionStartElement )
+        while ( currentSibling != selectionStartElement)
         {
             if (currentSibling.nodeName == "#text") totalStartOffset += currentSibling.length;
-            else if (currentSibling.nodeName == "FONT") totalStartOffset += currentSibling.innerText.length;
-            currentSibling = currentSibling.nextSibling;
-        };
+            
+            if (!currentSibling.length && currentSibling.firstChild)
+            {
+                currentSibling = currentSibling.firstChild;
+            }
+            else if (!currentSibling.nextSibling && currentSibling.parentNode != richTextField.document.getElementById("page"))
+            {
+                if (currentSibling.parentNode.nextSibling) currentSibling = currentSibling.parentNode.nextSibling;
+                else break;
+            }
+            else currentSibling = currentSibling.nextSibling;
+        }
     }
     
     startOffset += totalStartOffset;
@@ -112,7 +121,9 @@ function createChangeHTML(type)
     else selectionText = scrubbedSelection;
     
     execCmd("backColor", "#FFFFFE");
-    changesTopPos.push(richTextField.document.getElementById("page").getElementsByTagName("span")[0].offsetTop);
+    
+    changesTopPos.push(richTextField.document.getElementById("page").querySelector("[style='background-color: rgb(255, 255, 254);'").offsetTop);
+
     execCmd("undo", "");
     execCmd("foreColor", "#0abb00");
     richTextField.getSelection().removeAllRanges();
