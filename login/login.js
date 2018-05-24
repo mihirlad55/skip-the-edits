@@ -1,0 +1,7 @@
+function checkemail() {
+
+}
+
+function checkpass() {
+
+}

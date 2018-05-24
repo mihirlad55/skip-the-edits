@@ -35,28 +35,30 @@ body {
 }
 
 #loginbody h2 {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     text-align: center;
 }
 
 #loginbody h3 {
     font-size: 1.125rem;
     text-align: center;
+    padding-bottom: 0.875rem;
 }
 
-#loginbody input {
+input {
     font-family: 'Nunito';
     display: block;
     font-size: 1rem;
     padding: 0.75rem;
-    margin: 1.75rem 0;
+    margin: 0.875rem 0 1.75rem 0;
     outline: none;
     width: 100%;
     border: 1px solid #999999;
+    border-radius: 2px;
     transition-duration: 0.1s;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     border: 1px solid #4A86E8;
 }
 
@@ -70,17 +72,23 @@ input[type=text]:focus, input[type=password]:focus {
     transition-duration: 0.1s;
 }
 
+#api {
+    display: flex;
+}
+
 #google {
+    margin-right: 1.75rem;
     background-image: url("../img/google.png");
     background-repeat: no-repeat;
     background-size: 2.1875rem;
-    background-position: 0.25rem 0.25rem;
+    background-position: center;
 }
 
 #microsoft {
     background-image: url("../img/microsoft.png");
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
 }
 
 #loginbody .button:hover, #loginbody .button:focus {
@@ -88,10 +96,9 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .error {
-    display: block;
-    font-size: 14px;
-    margin: 0px auto;
-    padding: 0 15px;
+    font-size: 0.875rem;
+    margin: 0.875rem 0 1.75rem 0;
+    padding: 0.75rem;
     border: 1px solid #a94442;
     color: #a94442;
     background-color: #f2dede;

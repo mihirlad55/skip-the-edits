@@ -5,6 +5,7 @@
     <meta enctype="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Skip the Edits</title>
+    <script link="login.js"></script>
     <link href="../default.css" rel="stylesheet"/>
 	<link href="login.css" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="../favicon.jpg">
@@ -16,19 +17,29 @@
         <div class="middle">
             <div class="inner">
                 <h1>Let's get Started</h1>
-                <h2>OR</h2>
+                <?php include_once '../php/errors.php' ?>
                 <div class="col-10">
                     <h3>Sign In</h3>
+                    <form method="post" id="api">
+                            <input type="button" class="button" id="google">
+                            <input type="button" class="button" id="microsoft">
+                    </form>
+                    <h2>OR</h2>
                     <form method="post">
-                        <input type="button" class="button" value="Sign in with Google" id="google">
-                        <input type="button" class="button" value="Sign in with Microsoft" id="microsoft">
+                        <input type="text" placeholder="Email" name="email"
+                                value="<?php if(isset($logemail)){echo $logemail;} unset($logemail); ?>">
+                        <input type="password" placeholder="Password" name="password">
+                        <input type="submit" class="button" value="Log in" name="login">
                     </form>
                 </div>
                 <div class="col-10" style="border-left:1px solid black">
                     <h3>Register Now</h3>
                     <form method="post">
-                        <input type="text" placeholder="Email" name="email">
+                        <input type="text" placeholder="Email" name="email"
+                                value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} unset($_SESSION['email']);
+                                unset($_SESSION['hash']); ?>">
                         <input type="password" placeholder="Password" name="password">
+                        <input type="password" placeholder="Confirm Password" name="cpassword">
                         <input type="submit" class="button" value="Next" name="initial">
                     </form>
                 </div>

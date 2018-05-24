@@ -1,4 +1,3 @@
-<link href="modal.css" type="text/css" rel="stylesheet">
 <script>
     function closemodal() {
         document.getElementById("modal").style.display = "none";

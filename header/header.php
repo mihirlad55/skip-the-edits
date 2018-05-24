@@ -1,7 +1,7 @@
 <header id="header-main">
     <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
-    <a class="navbar-icon" id="iconAvatar" href="../..">
-        <img src="../img/avatar.png" />
+    <a class="navbar-icon" id="iconAvatar" href="../login/login.html?logout=1">
+        <img src="../img/avatar.png"/>
     </a>
     <a class="navbar-icon" id="iconNotification">
         <img src="../img/notification.png"/>

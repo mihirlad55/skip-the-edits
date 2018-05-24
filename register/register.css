@@ -1,10 +1,19 @@
 * {
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Nunito';
 }
 
 #registerbody {
     background-color: #F7F7F7;
+}
+
+#registerbody h1 {
+    text-align: center;
+    padding: 3rem 0 3rem 0;
+    font-size: 2rem;
 }
 
 .rows {
@@ -26,26 +35,27 @@
     max-width: 900px;
 }
 
-.createpost input, textarea, select, button {
+.createpost input, select, button {
+    font-family: 'Nunito';
+    font-size: 1rem;
     outline: none;
-    border: 1px solid rgb(200, 200, 200);
-    display: block;
-    text-decoration: none;
-    width: 100%;
-    padding: 8px;
+    border: 1px solid #999999;
     border-radius: 2px;
-    resize: none;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.875rem 0 1.75rem 0;
 }
 
 .createpost input:focus, select:focus, textarea:focus {
     transition-duration: 0.2s;
-    border: 1px solid dodgerblue;
+    border: 1px solid #4A86E8;
 }
 
 #submit {
     font-size: 14px;
     padding: 12px;
-    background-color: #4A86E8;;
+    background-color: #4A86E8;
     border: none;
     color: white;
     transition-duration: 0.1s;
@@ -57,21 +67,18 @@
 	background-color: dodgerblue;
 }
 
-.register, .addmember {
+.register {
     max-width: 360px;
 }
 
-.name {
-    font-size: 14px;
-    text-align: left;
-    font-weight: 600;
-    margin: 10px 0 6px 25px;
-}
-
-.username {
-    font-size: 13px;
-    text-align: left;
-    margin: 0 0 12px 25px;
+.error {
+    font-size: 0.875rem;
+    margin: 0.875rem 0 1.75rem 0;
+    padding: 0.75rem;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background-color: #f2dede;
+    text-align: center;
 }
 
 .content::after {

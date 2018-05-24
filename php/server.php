@@ -1,59 +1,78 @@
 <?php
     include_once('dbconnect.php');
     session_start();
+    $errors = array();
     $essays = array();
+    $logemail = '';
 
     if (isset($_POST['initial'])) {
         $email = $conn->real_escape_string($_POST['email']);
         $pass = $conn->real_escape_string($_POST['password']);
-        header('location: register.html');
-    }
+        $cpass = $conn->real_escape_string($_POST['cpassword']);
+        $hash = password_hash($pass, PASSWORD_DEFAULT);    
+        $_SESSION['email'] = $email;
+        $_SESSION['hash'] = $hash;
 
-    if (isset($_POST['register'])) {
-        $hash = password_hash($pass, PASSWORD_DEFAULT);
-        $firstname = $conn->real_escape_string($_POST['firstname']);
-        $lastname = $conn->real_escape_string($_POST['lastname']);
-        $acctype = $conn->real_escape_string($_POST['acctype']);
-
-        $check = "SELECT * FROM users WHERE email = '$email'";
+        $check = "SELECT * FROM Users WHERE email = '$email'";
         $result = $conn->query($check);
 
         if ($result->num_rows == 0) {
-            if (strlen($username) > 5 and strlen($password) > 5) {
-                $hash = password_hash($password, PASSWORD_DEFAULT);
-
-                $sql = "INSERT INTO users (email, pass, firstname, lastname, acctype)
-                        VALUES ('$email', '$hash', '$firstname', '$lastname', '$acctype')";
-                
-                if ($conn->query($sql) === true) {
-                    $_SESSION['msg'] = "Welcome to the Skip the Edits, " . $firstname . "!";
-                    $_SESSION['user'] = array('email' => $email, 'firstname' => $firstname, 'lastname' =>  $lastname);
-                    header('location: home.php');
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                if (strlen($pass) > 5) {
+                    if ($pass == $cpass) {
+                        header('location: ../register/register.html');
+                    } else {
+                        $errors[] = "Passwords do not match.";
+                    }
                 } else {
-                    $errors[] = "There was an error registering your account. Please try again later.";
+                    $errors[] = "Password must be at least 6 characters.";
                 }
             } else {
-                $errors[] = "Username and password must be at least 6 characters.";
+                $errors[] = "Please enter a valid email address.";
             }
         } else {
             $errors[] = "An account has already been registered with this email.";
         }
     }
 
+    if (isset($_POST['register'])) {
+        $email = $_SESSION['email'];
+        $hash =  $_SESSION['hash'];
+        
+        $firstname = $conn->real_escape_string($_POST['firstname']);
+        $lastname = $conn->real_escape_string($_POST['lastname']);
+        $acctype = $conn->real_escape_string($_POST['acctype']);
+
+        $sql = "INSERT INTO Users (email, password, firstName, lastName, accountType)
+                VALUES ('$email', '$hash', '$firstname', '$lastname', '$acctype')";
+
+        if ($conn->query($sql) === true) {
+            $_SESSION['user'] = array('email' => $email, 'password' => $hash, 'firstName' => $firstname,
+                                    'lastName' => $lastname, 'accountType' => $acctype);
+            $_SESSION['msg'] = "Welcome to the Skip the Edits, " . $firstname . "!";
+
+            header('location: ../home/home.html');
+        } else {
+            $errors[] = "There was an error registering your account. Please try again later.";
+        }
+    }
+
     if (isset($_POST['login'])) {
         $email = $conn->real_escape_string($_POST['email']);
+        $GLOBALS['logemail'] = $email;
         $pass = $conn->real_escape_string($_POST['password']);
 
-        $sql = "SELECT * FROM accounts WHERE email = '$email'";
+        $sql = "SELECT * FROM Users WHERE email = '$email'";
         $result = $conn->query($sql);
         $user = $result->fetch_assoc();
 
-        if (($result->num_rows > 0) and (password_verify($pass, $user['pass']))) {
-            $_SESSION['user'] = $result;
-            $_SESSION['msg'] = "Welcome back, " . $_SESSION['user']['firstname'] . "!";
-            header('location: home.html');
+        if (($result->num_rows > 0) and (password_verify($pass, $user['password']))) {
+            $_SESSION['user'] = array('id' => $user['id'], 'firstName' => $user['firstName'], 'lastName' => $user['lastName'],
+                                        'accountType' => $user['accountType']);
+            $_SESSION['msg'] = "Welcome back, " . $_SESSION['user']['firstName'] . "!";
+            header('location: ../home/home.html');
         } else {
-            $errors[] = "Username or password is incorrect";
+            $errors[] = "Email or password is incorrect.";
         }
     }
 
@@ -65,5 +84,10 @@
             $essays[] = $row;
         }
         $essays = array_reverse($essays);
+    }
+
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        header('location: login.html');
     }
 ?>

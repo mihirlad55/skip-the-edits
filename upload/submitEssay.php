@@ -20,7 +20,7 @@
     
     require_once("../php/dbconnect.php");
 
-    $userId = $_SESSION["userId"];
+    $userId = $_SESSION["user"]["id"];
     $title = $conn->real_escape_string($_POST["title"]);
     $editorType = $conn->real_escape_string($_POST["editorType"]);
     $instructions = $conn->real_escape_string($_POST["instructions"]);
