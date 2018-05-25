@@ -47,7 +47,7 @@
                 VALUES ('$email', '$hash', '$firstname', '$lastname', '$acctype')";
 
         if ($conn->query($sql) === true) {
-            $_SESSION['user'] = array('email' => $email, 'password' => $hash, 'firstName' => $firstname,
+            $_SESSION['user'] = array('email' => $email, 'firstName' => $firstname,
                                     'lastName' => $lastname, 'accountType' => $acctype);
             $_SESSION['msg'] = "Welcome to the Skip the Edits, " . $firstname . "!";
 

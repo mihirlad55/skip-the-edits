@@ -35,9 +35,7 @@
                 <div class="col-10" style="border-left:1px solid black">
                     <h3>Register Now</h3>
                     <form method="post">
-                        <input type="text" placeholder="Email" name="email"
-                                value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} unset($_SESSION['email']);
-                                unset($_SESSION['hash']); ?>">
+                        <input type="text" placeholder="Email" name="email">
                         <input type="password" placeholder="Password" name="password">
                         <input type="password" placeholder="Confirm Password" name="cpassword">
                         <input type="submit" class="button" value="Next" name="initial">
