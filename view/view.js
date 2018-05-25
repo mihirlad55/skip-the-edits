@@ -3,6 +3,7 @@
 var allChanges = [ ];
 var editors = [ ];
 var changes = [ ];
+var editMessages = [ ];
 var changesTopPos = [ ];
 
 
@@ -178,4 +179,29 @@ function sortChanges()
         if (changesTopPos[cId] < pElementBottom) cElement.style.top = pElementBottom.toString() + "px";
         else cElement.style.top = changesTopPos[cId].toString() + "px";
     }
+}
+
+function loadEditMessages()
+{
+    var HTML;
+    var editMessagesContainer = document.getElementById("editMessagesContainer");
+    editMessages.forEach(function(editMessage)
+    {
+        HTML =  `<div class="editMessage">
+                    <div class="editMessage-ratingSymbolContainer">
+                        <div class="editMessage-btnRate editMessage-btnLike">▲</div>
+                        <div class="editMessage-rating">` + editMessage.ratingTotal.toString() + `</div>
+                        <div class="editMessage-btnRate editMessage-btnDislike">▼</div>
+                    </div>
+                    <div class="editMessage-message">` + editMessage.message + `</div>
+                    <div class="editMessage-editorProfileBox">
+                        <img class="editMessage-profilePicture" src="../img/profile/1.jpeg">
+                        <div class="editMessage-editorName">` + editMessage.editorFullName + `</div>
+                        <div class="editMessage-editorProfession">` + editMessage.profession + `</div>
+                        <div class="editMessage-approvalRating">` + (editMessage.approvalRating * 100.0).toString() + `% Approval Rate</div>
+                    </div>
+                </div>`;
+                
+        editMessagesContainer.innerHTML += HTML;
+    });
 }
