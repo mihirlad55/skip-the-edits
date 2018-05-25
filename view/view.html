@@ -10,10 +10,10 @@
         <script>
                 allChanges = JSON.parse('<?php require_once("getChanges.php"); ?>');
                 editors = JSON.parse('<?php require_once("getEditors.php"); ?>');
+                editMessages = JSON.parse('<?php require_once("getEditMessages.php"); ?>');
                 document.head.removeChild(document.head.getElementsByTagName("script")[document.head.getElementsByTagName("script").length - 1]);
         </script>
     </head>
-    <body>
     <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges();">
         <header id="header-main">
             <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
@@ -104,6 +104,30 @@
         ?>
         </div>
         
-        <h2><?php require_once("getNumberOfEdits.php"); ?> Edits</h2>
+        <div id="editMessagesContainer">
+            <header>
+                <select id="dropDownSortEditMessages">
+                    <option value="latest">Latest</option>
+                    <option value="topRated">Top Rated</option>
+                </select>
+                <h2><?php require_once("getNumberOfEdits.php"); ?> Edits</h2>
+            </header>
+            
+            <div class="editMessage">
+                <div class="editMessage-ratingSymbolContainer">
+                    <div class="editMessage-btnRate editMessage-btnLike">▲</div>
+                    <div class="editMessage-rating">5</div>
+                    <div class="editMessage-btnRate editMessage-btnDislike">▼</div>
+                </div>
+                <div class="editMessage-message">Demonstrating weak critical thinking, this essay states a point of view (I do believe that any obstacle or disadvantage can be turned into something good) but offers little support beyond an insufficient discussion of the acting example given in the passage. 
+                </div>
+                <div class="editMessage-editorProfileBox">
+                    <img class="editMessage-profilePicture" src="../img/profile/1.jpeg">
+                    <div class="editMessage-editorName">Ravi Panwar</div>
+                    <div class="editMessage-editorProfession">High School Student</div>
+                    <div class="editMessage-approvalRating">99% Approval Rate</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

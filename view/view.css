@@ -94,3 +94,99 @@ h4 {
     margin-top: 3em;
     box-shadow: 1px 1px 1px black;
 }
+
+
+#editMessagesContainer {
+    margin: auto;
+    width: 70rem;
+    margin-top: 4rem;
+}
+
+#editMessagesContainer header {
+    border-bottom: 0.2rem #4A86E8 solid;
+}
+
+#editMessagesContainer select {
+    float: right;
+    font-family: arial;
+    font-size: 0.9rem;
+}
+
+#editMessagesContainer h2 {
+    padding: 0 0.4rem 0.3rem 0.4rem;
+    font-family: arial;
+    font-size: 1.5rem;
+}
+
+.editMessage {
+    border-bottom: 0.05rem grey solid;
+}
+
+.editMessage-btnRate {
+    font-family: arial;
+    font-size: 2rem;
+    color: grey;
+    cursor: pointer;
+    width: 2rem;
+}
+
+.editMessage-btnRate:hover {
+    color: #CACACA;
+}
+
+.editMessage-ratingSymbolContainer {
+    margin: 2rem;
+    display: inline-block;
+}
+
+.editMessage-rating {
+    font-family: arial;
+    font-size: 1.4rem;
+    text-align: center;
+    width: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.editMessage-message {
+    width: 45rem;
+    display: inline-block;
+    margin-top: 3rem;
+    vertical-align: top;
+    font-size: 0.95rem;
+    font-family: arial;
+}
+
+.editMessage-editorProfileBox {
+    float: right;
+    border: 0.1rem #3f88ff solid;
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 13rem;    
+}
+
+.editMessage-profilePicture {
+    width: 4rem;
+    border: 0.05rem grey solid;
+    float: left;
+    background-color: #E8E8E8;
+}
+
+.editMessage-editorName, .editMessage-editorProfession, .editMessage-approvalRating {
+    line-height: 1rem;
+    margin-left: 5rem;
+    font-family: arial;
+}
+
+.editMessage-editorName {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.editMessage-editorProfession {
+    font-size: 0.8rem;
+}
+
+.editMessage-approvalRating {
+    font-size: 0.8rem;
+}

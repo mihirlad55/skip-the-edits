@@ -4,6 +4,7 @@
     
     require_once("../php/dbconnect.php");
     
+    
     $essayId = $conn->real_escape_string($_GET["id"]);
     
     $query = "SELECT COUNT(*) AS numberOfEdits FROM Edits WHERE essayId=${essayId}";
