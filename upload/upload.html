@@ -30,8 +30,7 @@
             <h1>View Essay</h1>
         </header>
         
-        <form action="submitEssay.php" method="POST" enctype="multipart/form-data">
-            
+        <form action="getRawFileText.php" method="POST" enctype="multipart/form-data" onsubmit="parent.getFormInfo();">
             <section>
                 <div class="control-group">
                     <label for="txtTitle">Title of Essay</label>
@@ -46,21 +45,22 @@
                     </select>
                 </div>
             </section>
-            
+                
             <section>
                 <div class="control-group-instructions">
                     <label for="txtInstructions">Instructions</label>
                     <textarea id="txtInstructions" rows="8" placeholder="Assignment Instructions" name="instructions"></textarea>
                 </div>
             </section>
-            
+                
             <section>
                 <div class="control-group-file">
                     <label>File</label>
                     <input id="filePicker" type="file" name="file">
                 </div>
-                <input type="submit" id="btnSubmit">
+                <input type="submit" id="btnUpload">
             </section>
         </form>
+        
     </body>
 </html>
