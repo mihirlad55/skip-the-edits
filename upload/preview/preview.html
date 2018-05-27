@@ -32,11 +32,12 @@
         <header id="header-secondary">
             <h1>Preview Essay</h1>
         </header>
-        <form action="submitEssay.php" method="POST">
+        <form action="submitEssay.php" method="POST" onsubmit="validateForm(event);">
 
             <input type="text" class="hidden" name="essayTitle" value="<?php echo $_POST['title']; ?>">
             <input type="text" class="hidden" name="essayInstructions" value="<?php echo $_POST['instructions']; ?>">
             <input type="text" class="hidden" name="editorType" value="<?php echo $_POST['editorType']; ?>">
+            <textarea class="hidden" id="txtPage" name="page"></textarea>
 
             <div id="submitContainer">
                 <p>Please review your essay and make changes where necessary before submitting.</p>
