@@ -66,6 +66,32 @@ h1 {
     float: left;
 }
 
-#documentContainer {
-    background-color: rgb(238, 238, 238);
+.hidden { 
+    display: none;
+}
+
+#submitContainer {
+    min-width: 9rem;
+    position: fixed;
+    width: 13rem;
+    font-family: arial;
+    padding: 1rem;
+    text-align: center;
+    background-color: #FFFFFF;
+    right: 0;
+}
+
+input[type='submit'] {
+    margin-top: 1em;
+    background-color: #4f92ff;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1em;
+}
+
+input[type='submit']:hover {
+    background-color: #6db7ff;
+    transition-duration: 0.25s;
 }

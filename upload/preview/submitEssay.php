@@ -1,7 +1,5 @@
 <?php
 
-    include_once("docConvert.php");
-        
     session_start();
     
     /*if (!$_SESSION["isLoggedIn"]) {
@@ -14,16 +12,15 @@
         die("Not a POST request.");
     }*/
 
-    $info = pathinfo($_FILES['file']['name']);
-    
-    if (!($_FILES['file']['type'] == "text/plain" || $info['extension'] == "docx" || $info['extension'] == 'doc')) die("Error: Not a supported file format.");
-    
-    require_once("../php/dbconnect.php");
+    if ($_SERVER["REQUEST_METHOD"] != "POST") die("Not a POST Request");
+
+    require_once("${_SERVER['DOCUMENT_ROOT']}/php/dbconnect.php");
 
     $userId = $_SESSION["user"]["id"];
-    $title = $conn->real_escape_string($_POST["title"]);
+    $title = $conn->real_escape_string($_POST["essayTitle"]);
     $editorType = $conn->real_escape_string($_POST["editorType"]);
-    $instructions = $conn->real_escape_string($_POST["instructions"]);
+    $instructions = $conn->real_escape_string($_POST["essayInstructions"]);
+    $text = $_POST["page"];
 
     $queryString = "INSERT INTO Essays VALUES ('NULL', '$userId', '$title', '$editorType', '$instructions')";
     if (!$conn->query($queryString))
@@ -34,18 +31,11 @@
     
     $filename = $conn->insert_id;
     
-    $target = "../files/$filename.txt";
+    $target = "${_SERVER['DOCUMENT_ROOT']}/files/$filename.txt";
 
+    $file = fopen($target, "w");
+    fwrite($file, $text);
+    fclose($file);
 
-    if ( $info['extension'] == "docx" || $info['extension'] == 'doc')
-    {
-        $file = fopen($target, "w");
-        if ( $info['extension'] == "docx") fwrite($file, readDocx($_FILES['file']['tmp_name']));
-        else fwrite($file, readDoc($_FILES['file']['tmp_name']));
-        fclose($file);
-    }
-    else move_uploaded_file( $_FILES['file']['tmp_name'], $target);
-    
-    echo $target;
-
+    header("Location: /view?id=${filename}")
 ?>
