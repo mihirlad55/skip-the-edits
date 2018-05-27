@@ -1,4 +1,10 @@
 <script>
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("modal")) {
+            document.getElementById("modal").style.display = "none";
+        }
+    }
+    
     function closemodal() {
         document.getElementById("modal").style.display = "none";
     }
