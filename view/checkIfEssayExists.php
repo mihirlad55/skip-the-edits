@@ -6,12 +6,15 @@
     
     require_once("../php/dbconnect.php");
     
-    $essayId = $conn->real_escape_string($_GET["id"]);
+    $essayId = -1;
+    if (isset($_GET["id"])) {
+        $essayId = $conn->real_escape_string($_GET["id"]);
+    }
     
     $query = "SELECT COUNT(*) AS doesEssayExist FROM Essays WHERE id=${essayId}";
     
     $result;
-    if ( !($result = $conn->query($query)) ) die($conn->error());
+    if ( !($result = $conn->query($query)) ) die($conn->error);
     
     if ($result->fetch_assoc()['doesEssayExist'] == 0) {
         session_start();

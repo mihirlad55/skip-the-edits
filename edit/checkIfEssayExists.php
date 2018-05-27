@@ -14,7 +14,7 @@
     $query = "SELECT COUNT(*) AS doesEssayExist FROM Essays WHERE id=${essayId}";
     
     $result;
-    if ( !($result = $conn->query($query)) ) die($conn->error());
+    if ( !($result = $conn->query($query)) ) die($conn->error);
     
     if ($result->fetch_assoc()['doesEssayExist'] == 0) {
         session_start();
