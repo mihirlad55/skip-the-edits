@@ -25,8 +25,7 @@
 }
 
 .navbar-icon {
-    padding: 0.75rem 2rem 0.75rem 0;
-    height: 3.75rem;
+    padding: 0.75rem 2rem 0 0;
     float: right;
     cursor: pointer;
 }
@@ -36,7 +35,7 @@
 }
 
 #iconAvatar {
-    padding: 0.75rem 2rem 0.5rem 0;
+    padding: 0.75rem 2rem 0rem 0;
 }
 
 #iconAvatar img {
@@ -46,6 +45,7 @@
 #header-main #logo {
     margin: 0;
     padding: 0.3125rem;
-    float: left;
-    height: 3.75rem;
+    display: inline-block;
+    height: 3.2rem;
+    float: none;
 }
