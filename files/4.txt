@@ -1,0 +1,74 @@
+
+NORTH PARK SECONDARY SCHOOL
+CULMINATING LABORATORY EXAM
+THE CORROSION OF IRON
+PRE-LAB ASSIGNMENT:
+1. a) What is meant by the term 'corrosion'?
+It is a spontaneous redox reaction of materials with substances in their environment
+b) Describe, using chemical equations, the reactions that occur when a piece of iron metal 'rusts'?
+Carbon dioxide in the air dissolves in water to form carbonic acid, H2CO3. Since it partially dissociates into ions, it is an electrolyte for the corrosion process. Iron acts as the anode when rusting, and the cathode is inert.
+Oxidation half-reaction: Fe  Fe2+ + 2e-
+Reduction half-reaction: O2 + 2H2O + 4e-  4OH-
+There is no barrier in the cell, so the dissolved Fe2+ and OH- ions react to form Fe(OH)2.
+Overall cell reaction: 2Fe + O2 + 2H2O  2Fe(OH)2
+The iron(II) hydroxide reacts with the oxygen in the air to form iron(III) hydroxide. 
+4Fe(OH)2 + O2 + 2H2O  Fe(OH)3
+Iron(III) hydroxide then breaks down to form iron(III) oxide hydrate, also known as rust.
+2Fe(OH)3  Fe2O3 • 3H2O
+c) How does the presence of impurities such as copper affect the rusting of a piece of sheet metal of iron?
+   
+d) How does the rusting of iron differ from that of chromium, aluminum or magnesium?
+Many metals corrode in air to form a metal oxide, but in most cases, the oxide layer is relatively strong and sticks to the surface. This layer protects the metal from corroding further. Iron, however, forms rust that flakes off very easily and does not provide any protection from further corrosion.
+2. a) Use you table of standard reduction potentials (table E.13) to determine whether the
+following reactions will occur.
+        
+Complete and balance each equation for which a reaction occurs.  Where no reaction occurs, write " NO RXN".
+i) Zn + Cu(NO3)2  Zn(NO3)2 + Cu            iii) 2Al + 6HNO3  2Al(NO3)3 + 3H2
+ii) Ag + Mg(NO3)2  NO RXNiv) Mg + Fe(NO3)2  Mg(NO3)2 + Fe
+    b) Justify the logic used to answer question (a) above
+Using standard reduction potentials, one can calculate the standard cell potential using the formula E˚cell = E˚cathode − E˚anode. If the cell potential is positive, the reaction will occur. If the cell potential is negative, the reaction will not occur. In part 2(a), i, iii, and iv all had positive cell potentials, indicating that the reactions are spontaneous.
+3. For each reaction that occurred in question 2(a) above, label the redox pairs using a square bracket and identify the species that was oxidized and reduced.
+i) Zn [ox] + Cu(NO3)2 [red]  Zn(NO3)2 + Cu        iii) 2Al [ox] + 6HNO3 [red]  2Al(NO3)3 + 3H2 iv) Mg [ox] + Fe(NO3)2 [red]  Mg(NO3)2 + Fe
+4. Because some metals can actually prevent rusting, 'sacrificial anodes' are widely used to protect such things as underground pipelines, large ocean-going ships and outboard motors. This method is often called ' cathodic protection'
+Why is it called this?
+It is called this because you are using another metal to act as an anode to take the rusting in place of the protected metal, which would act as a cathode.
+Explain, with equations, how a block of magnesium metal will prevent an iron ship, floating in salt water, from corroding or rusting.
+Sacrificial protection is basically attaching a piece of metal that is more reactive that iron to the object made of iron. In this case, it is magnesium and will corrode in the place of the iron. The magnesium will feed the iron with electrons each time the iron is oxidized to form iron ions, thus reverting it to iron once again instead of letting it become iron hydroxide (rust). Thus, the magnesium is sacrificed for the iron.
+Mg  Mg2+ + 2e-
+Fe2+ + 2e-  Fe
+c) Use a table of Eo valuses to predict two more metals which would:
+   i) inhibit rusting
+Zinc, Chromium
+   ii) promote rusting (make sure you use metals that are practical)
+Copper, Tin
+5. Copper water pipes are sometimes affected by copper corrosion, which means that copper by-products are released into the water.
+a) If you had copper corrosion in your pipes, what signs would you see?
+The pipes would gradually thin and blue/green stains would appear. The water flowing through the pipe may also be coloured and have a bitter/metallic taste.
+b) Why is copper corrosion a problem?
+Copper contamination can cause gastrointestinal problems in the short term and damage the liver and kidneys over time.
+c) What are some of the recommended processes if you do find this in your home? 
+    (A reminder to make sure you cite your resources here)
+If the pH of the water is too low, you can install a calcite neutralizer tank or a soda ash feeder to raise the pH to 7.0 or 8.0. A Calcite neutralizer filter releases calcium and magnesium. Soda ash feeders release sodium carbonate. A phosphate feeder can also be installed, which coats the interior of the pipes with phosphate which will act as a protective layer.
+6.   In preparation for your introduction to the lab, research the MSDS (health and safety) sheets for K3Fe(CN)6 or hydroxyl indicator and general inhibition of corrosion of metals.
+(this section can be point form jot notes)
+Hazards Identification
+Hazardous in case of skin contact, eye contact, ingestion, and inhalation
+Prolonged exposure is not known to aggravate medical condition
+First Aid Measures
+Eye Contact: Flush eyes with water for 15 minutes
+Skin Contact: Flush skin with plenty of water and remove any contaminated clothing
+Serious Skin Contact: Wash with disinfectant soap and cover contaminated skin with an anti-bacterial cream
+Inhalation: Move to fresh air if inhaled
+Accidental Release Measures
+Put the spilled contaminate in a waste disposable container and clean the contaminated surface by spreading water
+Personal Protection
+Only use in a well-ventilated area
+Wear goggles, a lab coat, a dust respirator and gloves
+*7.     Iron (II) ions react with potassium ferricyanide, K3Fe(CN)6, to form a coloured precipitate. 
+a) What purpose does this reagent serve in Part A of this investigation?
+b) Why is phenolphthalein added in Lab B. (this combination is called ferroxyl indicator)
+Works Cited
+How To Treat Copper Pipe Corrosion. (n.d.). Retrieved January 13, 2018, from https://www.cleanwaterstore.com/resource/how-to-guides/how-to-treat-copper-pipe-corrosion/
+McFarland, M. L., Provin, T. L., &amp; Boellestorff, D. E. (2012, July). Drinking Water Problems: Corrosion. Retrieved January 13, 2018, from http://twon.tamu.edu/media/385808/drinking%20water%20problems-corrosion.pdf
+Mustoe, F., Jansen, M., Webb, M., Hayhoe, C., Cherkas, A., &amp; Gaylor, J. (2002). McGraw-Hill Ryerson chemistry 12. Toronto: McGraw-Hill Ryerson.
+S. (2013, May 21). Potassium ferricyanide MSDS. Retrieved January 13, 2018, from http://www.sciencelab.com/msds.php?msdsId=9927405

@@ -53,8 +53,8 @@ body {
 }
 
 #submit {
-    font-size: 14px;
-    padding: 12px;
+    font-size: 1rem;
+    padding: 0.75rem;
     background-color: #4A86E8;
     border: none;
     color: white;
@@ -69,6 +69,17 @@ body {
 
 .register {
     max-width: 360px;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 1rem; 
+    text-align: center;
+    display: block;
+}
+
+.link:hover, .link:focus {
+    text-decoration: underline;
 }
 
 .error {

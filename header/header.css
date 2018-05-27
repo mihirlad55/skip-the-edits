@@ -5,18 +5,18 @@
     width: 100%;
     box-shadow: 1px 0px 5px 1px #0000007a;
     background-color: #FBFBFB;
-    height: 3.5rem;
+    height: 3.75rem;
 }
 
 .navbar-icon {
     padding: 0.75rem 2rem 0.75rem 0;
-    height: 3.5rem;
+    height: 3.75rem;
     float: right;
     cursor: pointer;
 }
 
 .navbar-icon img {
-    height: 2rem;
+    height: 2.25rem;
 }
 
 #iconAvatar {
@@ -24,12 +24,12 @@
 }
 
 #iconAvatar img {
-    height: 2.25rem;
+    height: 2.5rem;
 }
 
 #header-main #logo {
     margin: 0;
     padding: 0.3125rem;
     float: left;
-    height: 3.5rem;
+    height: 3.75rem;
 }

@@ -6,7 +6,9 @@
 <div id="modal">
     <div id="popup">
         <a id="close" onclick="closemodal()">&times;</a>
-        <p style="font-weight:bold; padding-top:30px">Alert</p>
-        <p id="alert" style="font-size:14px"><?php echo $_SESSION['msg'] ?></p>
+        <div id="popuptext">
+            <p style="font-size:1rem; font-weight:bold; padding-top:1.875rem">Alert</p>
+            <p id="alert"><?php echo $_SESSION['msg'] ?></p>
+        </div>
     </div>
 </div>

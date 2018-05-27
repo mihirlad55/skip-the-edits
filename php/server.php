@@ -20,7 +20,7 @@
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 if (strlen($pass) > 5) {
                     if ($pass == $cpass) {
-                        header('location: ../register/register.html');
+                        header('location: ../register/');
                     } else {
                         $errors[] = "Passwords do not match.";
                     }
@@ -51,7 +51,7 @@
                                     'lastName' => $lastname, 'accountType' => $acctype);
             $_SESSION['msg'] = "Welcome to the Skip the Edits, " . $firstname . "!";
 
-            header('location: ../home/home.html');
+            header('location: ../home/');
         } else {
             $errors[] = "There was an error registering your account. Please try again later.";
         }
@@ -70,7 +70,7 @@
             $_SESSION['user'] = array('id' => $user['id'], 'firstName' => $user['firstName'], 'lastName' => $user['lastName'],
                                         'accountType' => $user['accountType']);
             $_SESSION['msg'] = "Welcome back, " . $_SESSION['user']['firstName'] . "!";
-            header('location: ../home/home.html');
+            header('location: ../home/');
         } else {
             $errors[] = "Email or password is incorrect.";
         }
@@ -88,6 +88,6 @@
 
     if (isset($_GET['logout'])) {
         session_destroy();
-        header('location: login.html');
+        header('location: ../login/');
     }
 ?>

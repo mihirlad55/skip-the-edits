@@ -1,4 +1,9 @@
-<?php include_once '../php/server.php' ?>
+<?php
+    include_once '../php/server.php';
+    if (!isset($_SESSION['email']) or !isset($_SESSION['hash'])) {
+        header('location: ../login/');
+    }    
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,7 +32,7 @@
                 </select>
                 <input type="submit" value="Register" name="register" id="submit">
             </form>
-            <a href="../login/login.html" class="link">Already have an account?</a>
+            <a href="../login/" class="link">Already have an account?</a>
             <br>
         </div>
     </div>

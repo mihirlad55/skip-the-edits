@@ -1,15 +1,15 @@
 <header id="header-main">
     <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
-    <a class="navbar-icon" id="iconAvatar" href="../login/login.html?logout=1">
+    <a class="navbar-icon" id="iconAvatar" href="../login/?logout=1">
         <img src="../img/avatar.png"/>
     </a>
     <a class="navbar-icon" id="iconNotification">
         <img src="../img/notification.png"/>
     </a>
-    <a class="navbar-icon" id="iconUpload" href="../upload/upload.html">
+    <a class="navbar-icon" id="iconUpload" href="../upload/">
         <img src="../img/upload.png"/>
     <a/>
-    <a class="navbar-icon" id="iconHome" href="../home/home.html">
+    <a class="navbar-icon" id="iconHome" href="../home/">
         <img src="../img/home.png"/>
     </a>
 </header>
