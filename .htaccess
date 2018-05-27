@@ -1,6 +1,6 @@
 <Files ~ "^\.(htaccess|htpasswd)$">
 deny from all
 </Files>
-DirectoryIndex index.html edit.html view.html upload.html home.html login.html register.html
+DirectoryIndex index.html edit.html view.html upload.html home.html login.html register.html preview.html
 order deny,allow
 AddType application/x-httpd-php .htm .html
