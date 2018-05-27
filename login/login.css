@@ -78,14 +78,14 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 
 #google {
     margin-right: 1.75rem;
-    background-image: url("../img/google.png");
+    background-image: url("/img/google.png");
     background-repeat: no-repeat;
     background-size: 2.1875rem;
     background-position: center;
 }
 
 #microsoft {
-    background-image: url("../img/microsoft.png");
+    background-image: url("/img/microsoft.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

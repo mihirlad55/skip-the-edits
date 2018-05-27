@@ -147,7 +147,7 @@ function refreshChanges()
         HTML = 
                 "<div class='change' contentEditable='false' style='top: " + fontElements[i].offsetTop.toString() + "px' id='change" + change.id.toString() + "' onmouseover='showComment(" + change.id.toString() + ");' onmouseout='hideComment(" + change.id.toString() + ");'>" +
                     "<div class='change-main-content'>" +
-                        "<img class='change-picture' src='../img/edit-icons/" + change.type.toLowerCase() + ".png'>" +
+                        "<img class='change-picture' src='/img/edit-icons/" + change.type.toLowerCase() + ".png'>" +
                         "<p class='change-selection'>" + change.condensedSelection  + "</p>" +
                     "</div>" +
                     "<p class='change-comment hidden'>" + change.comment + "</p>" +
@@ -195,7 +195,7 @@ function loadEditMessages()
                     </div>
                     <div class="editMessage-message">` + editMessage.message + `</div>
                     <div class="editMessage-editorProfileBox">
-                        <img class="editMessage-profilePicture" src="../img/profile/1.jpeg">
+                        <img class="editMessage-profilePicture" src="/img/profile/1.jpeg">
                         <div class="editMessage-editorName">` + editMessage.editorFullName + `</div>
                         <div class="editMessage-editorProfession">` + editMessage.profession + `</div>
                         <div class="editMessage-approvalRating">` + (editMessage.approvalRating * 100.0).toString() + `% Approval Rate</div>

@@ -133,7 +133,7 @@ function createChangeHTML(type)
     var HTML = 
                 "<div class='change' contentEditable='false' style='top: " + changesTopPos[id].toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
                     "<div class='change-main-content'>" +
-                        "<img class='change-picture' src='../img/edit-icons/" + getEnumChangeTypeString(type).toLowerCase() + ".png'>" +
+                        "<img class='change-picture' src='/img/edit-icons/" + getEnumChangeTypeString(type).toLowerCase() + ".png'>" +
                         "<p class='change-selection'>" + selectionText  + "</p>" +
                     "</div>" +
                     "<p class='change-comment hidden'>" + change.comment + "</p>" +
