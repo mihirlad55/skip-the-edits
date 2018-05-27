@@ -1,5 +1,6 @@
 <?php
     require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
+    require_once("checkIfEssayExists.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,7 +18,7 @@
                 document.head.removeChild(document.head.getElementsByTagName("script")[document.head.getElementsByTagName("script").length - 1]);
         </script>
     </head>
-    <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges();">
+    <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges(); loadEditMessages();">
         <header id="header-main">
             <img class="navbar-icon" src="/img/logo-nb.png" id="logo"/>
             
@@ -108,7 +109,7 @@
                 <h2><?php require_once("getNumberOfEdits.php"); ?> Edits</h2>
             </header>
             
-            <div class="editMessage">
+            <!--<div class="editMessage">
                 <div class="editMessage-ratingSymbolContainer">
                     <div class="editMessage-btnRate editMessage-btnLike">▲</div>
                     <div class="editMessage-rating">5</div>
@@ -122,7 +123,7 @@
                     <div class="editMessage-editorProfession">High School Student</div>
                     <div class="editMessage-approvalRating">99% Approval Rate</div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </body>
 </html>
