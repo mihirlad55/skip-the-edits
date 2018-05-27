@@ -1,22 +1,15 @@
 <?php
 
-    session_start();
-    
-    /*if (!$_SESSION["isLoggedIn"]) {
-        session_abort();
-        die("Not Logged In.");
-    }
-    else if ($_SERVER["REQUEST_METHOD"] != "POST")
-    {
-        session_abort();
-        die("Not a POST request.");
-    }*/
+    require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
 
-    if ($_SERVER["REQUEST_METHOD"] != "POST") die("Not a POST Request");
+    if ($_SERVER["REQUEST_METHOD"] != "POST") die("Not a POST request.");
 
     require_once("${_SERVER['DOCUMENT_ROOT']}/php/dbconnect.php");
 
+    session_start();
     $userId = $_SESSION["user"]["id"];
+    session_abort();
+
     $title = $conn->real_escape_string($_POST["essayTitle"]);
     $editorType = $conn->real_escape_string($_POST["editorType"]);
     $instructions = $conn->real_escape_string($_POST["essayInstructions"]);

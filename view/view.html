@@ -92,15 +92,7 @@
         
         <div name="hiddenPage" style="display: none; white-space: pre-wrap;" id="hiddenPage">
         <?php
-            session_start();
-                
-            /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
-            {
-                session_abort();
-                die("Not Logged In!");
-            }*/
-            
-            
+        
             $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
             
             echo readfile($filePath);
