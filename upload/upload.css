@@ -1,62 +1,8 @@
 body {
     background-color: #F7F7F7;
+    font-family: arial;
 }
 
-#header-main
-{
-    z-index: 1;
-    position: fixed;
-    margin: 0;
-    padding: 0;
-    padding-right: 2em;
-    width: 100%;
-    box-shadow: 1px 0px 5px 1px #0000007a;
-    background-color: #FBFBFB;
-}
-
-
-#header-secondary {
-    margin: 0;
-    padding: 0;
-    padding-top: 4em;
-    height: 12em;
-    background-color: #4A86E8;
-}
-
-
-h1 {
-    text-align: center;
-    font-family: Arial;
-    color: #FFFFFF;
-    font-size: 2em;
-    line-height: 6em;
-}
-
-
-.navbar-icon {
-    margin: 0;
-    padding: 0.8em 2em 0.8em 0em;
-    float: right;
-    height: 2.4em;
-    cursor: pointer;
-}
-
-.navbar-icon img {
-    height: inherit
-}
-
-
-#logo {
-    margin: 0;
-    padding: 0;
-    float: none;
-    height: 4em;
-}
-
-#iconAvatar {
-    padding: 0.4em 2em 0.4em 0em;
-    height: 3.2em;
-}
 
 form { 
     margin-top: 4rem;
@@ -73,8 +19,8 @@ form {
 
 .control-group-file {
     text-align: center;
-    display: inline-block;
     max-width: 12rem;
+    float: left;
 }
 
 form input[type="submit"] {
@@ -134,3 +80,47 @@ section:nth-child(2) {
 #panelPreview {
     display: none;
 }
+
+#fileInputContainer {
+    position: relative;
+}
+
+#fileInputContainer button {
+    position: relative;
+    top: -27px;
+    left: -2px;
+    width: 186px;
+    font-size: 13.333px;
+}
+
+input[type='file'] {
+    position: relative;
+    opacity: 0;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+button {
+    background-color: #4f92ff;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+button:hover {
+    background-color: #6db7ff;
+    transition-duration: 0.25s;
+}
+
+#btnUpload {
+    float: right;
+}
+
+#inputFilePath {
+    position: relative;
+    left: 12rem;
+    width: 7rem;
+    top: -3rem;
+}
+

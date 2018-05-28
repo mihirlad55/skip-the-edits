@@ -10,6 +10,7 @@
         <title>View Essay</title>
         <link href="/default.css" rel="stylesheet"/>
         <link href="view.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="view.js"></script>
         <script>
                 allChanges = JSON.parse('<?php require_once("getChanges.php"); ?>');
@@ -19,22 +20,7 @@
         </script>
     </head>
     <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges(); loadEditMessages();">
-        <header id="header-main">
-            <img class="navbar-icon" src="/img/logo-nb.png" id="logo"/>
-            
-            <a class="navbar-icon" id="iconAvatar" href="../..">
-                <img src="/img/avatar.png" />
-            </a>
-            <a class="navbar-icon" id="iconNotification">
-                <img src="/img/notification.png"/>
-            </a>
-            <a class="navbar-icon" id="iconUpload" href="../../upload">
-                <img src="/img/upload.png"/>
-            <a/>
-            <a class="navbar-icon" id="iconHome" href="../../home">
-                <img src="/img/home.png"/>
-            </a>
-        </header>
+        <?php include_once("${_SERVER['DOCUMENT_ROOT']}/header/header.html"); ?>
         
         <header id="header-secondary">
             <h1>View Essay</h1>

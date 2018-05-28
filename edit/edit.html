@@ -1,5 +1,6 @@
 <?php
     require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
+    require_once("checkIfEssayExists.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,22 +15,7 @@
         <script src="/general.js"></script>
     </head>
     <body onload="enableEditMode();">
-        <header id="header-main">
-            <img class="navbar-icon" src="/img/logo-nb.png" id="logo"/>
-            
-            <a class="navbar-icon" id="iconAvatar" href="../..">
-                <img src="/img/avatar.png" />
-            </a>
-            <a class="navbar-icon" id="iconNotification">
-                <img src="/img/notification.png"/>
-            </a>
-            <a class="navbar-icon" id="iconUpload" href="../../upload">
-                <img src="/img/upload.png"/>
-            <a/>
-            <a class="navbar-icon" id="iconHome" href="../../home">
-                <img src="/img/home.png"/>
-            </a>
-        </header>
+            <?php include_once("${_SERVER['DOCUMENT_ROOT']}/header/header.html"); ?>
         
         <header id="header-secondary">
             <h1>Edit Essay</h1>

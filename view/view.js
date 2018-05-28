@@ -168,16 +168,18 @@ function sortChanges()
     var pElementBottom = 0;
     var cId = 0;
     
-    changeElements[0].style.top = changesTopPos[changeElements[0].id.substr(6, changeElements[0].id.length - 6)];
+    if (changeElements.length > 0) {
+        changeElements[0].style.top = changesTopPos[changeElements[0].id.substr(6, changeElements[0].id.length - 6)];
 
-    for (var i = 1; i < changeElements.length; i++)
-    {
-        pElement = changeElements[i - 1];
-        cElement = changeElements[i];
-        cId = cElement.id.substr(6, cElement.id.length - 6);
-        pElementBottom = pElement.offsetTop + pElement.offsetHeight;
-        if (changesTopPos[cId] < pElementBottom) cElement.style.top = pElementBottom.toString() + "px";
-        else cElement.style.top = changesTopPos[cId].toString() + "px";
+        for (var i = 1; i < changeElements.length; i++)
+        {
+            pElement = changeElements[i - 1];
+            cElement = changeElements[i];
+            cId = cElement.id.substr(6, cElement.id.length - 6);
+            pElementBottom = pElement.offsetTop + pElement.offsetHeight;
+            if (changesTopPos[cId] < pElementBottom) cElement.style.top = pElementBottom.toString() + "px";
+            else cElement.style.top = changesTopPos[cId].toString() + "px";
+        }
     }
 }
 
@@ -185,17 +187,24 @@ function loadEditMessages()
 {
     var HTML;
     var editMessagesContainer = document.getElementById("editMessagesContainer");
+    let btnLikeClassNameSuffix = '';
+    let btnDislikeClassNameSuffix = '';
     editMessages.forEach(function(editMessage)
     {
-        HTML =  `<div class="editMessage">
+        btnLikeClassNameSuffix = (editMessage.ratingUser == 'LIKE') ? ' editMessage-rating-active' : '';
+        btnDislikeClassNameSuffix = (editMessage.ratingUser == 'DISLIKE') ? ' editMessage-rating-active': '';
+
+        HTML =  `<div class="editMessage" id="editMessage` + editMessage.id.toString() + `">
                     <div class="editMessage-ratingSymbolContainer">
-                        <div class="editMessage-btnRate editMessage-btnLike">▲</div>
+                        <div class="editMessage-btnRate editMessage-btnLike` + btnLikeClassNameSuffix + `" onclick='rate(` + editMessage.id.toString() + `, "LIKE");'>▲</div>
                         <div class="editMessage-rating">` + editMessage.ratingTotal.toString() + `</div>
-                        <div class="editMessage-btnRate editMessage-btnDislike">▼</div>
+                        <div class="editMessage-btnRate editMessage-btnDislike` + btnDislikeClassNameSuffix + `" onclick='rate(` + editMessage.id.toString() + `, "DISLIKE");'>▼</div>
                     </div>
                     <div class="editMessage-message">` + editMessage.message + `</div>
                     <div class="editMessage-editorProfileBox">
-                        <img class="editMessage-profilePicture" src="/img/profile/1.jpeg">
+                        <object class="editMessage-profilePicture" data="/img/profile/` + editMessage.editorId.toString() + `.png" type="image/png">
+                            <img class="editMessage-profilePicture" src="/img/profile/default.jpeg">
+                        </object>
                         <div class="editMessage-editorName">` + editMessage.editorFullName + `</div>
                         <div class="editMessage-editorProfession">` + editMessage.profession + `</div>
                         <div class="editMessage-approvalRating">` + (editMessage.approvalRating * 100.0).toString() + `% Approval Rate</div>
@@ -204,4 +213,58 @@ function loadEditMessages()
                 
         editMessagesContainer.innerHTML += HTML;
     });
+}
+
+/**
+ * 
+ * Send AJAX Request to PHP to register user rating if necessary
+ * @param {number} editMessageId Id of Edit Message
+ * @param {string} rating enum ('LIKE' or 'DISLIKE')
+ */
+function rate(editMessageId, rating) {
+    editMessages.forEach(function (editMessage) {
+        if (editMessage.id == editMessageId) {
+
+            let userRating = editMessage.ratingUser;
+
+            if (rating == userRating) {
+                rating = 'NONE';
+            }
+
+            $.ajax({
+                "url": "rateEditMessage.php",
+                "method": "POST",
+                "data": {
+                    'editMessageId': editMessageId,
+                    'rating': rating
+                }
+            });
+
+            let ratingSymbolContainer = document.getElementById("editMessage" + editMessageId.toString()).getElementsByClassName('editMessage-ratingSymbolContainer')[0];
+            let likeBtn = ratingSymbolContainer.getElementsByClassName("editMessage-btnLike")[0];
+            let dislikeBtn = ratingSymbolContainer.getElementsByClassName("editMessage-btnDislike")[0];
+
+            likeBtn.className = "editMessage-btnRate editMessage-btnLike";
+            dislikeBtn.className = "editMessage-btnRate editMessage-btnDislike";
+
+            let rate = {
+                'DISLIKE': -1,
+                'NONE': 0,
+                'LIKE': 1
+            }
+            editMessage.ratingTotal += rate[rating] - rate[editMessage.ratingUser];
+
+            if (rating == 'LIKE') {
+                likeBtn.className += ' editMessage-rating-active';
+            } else if (rating == 'DISLIKE') {
+                dislikeBtn.className += ' editMessage-rating-active';
+            }
+
+            editMessage.ratingUser = rating;
+
+            ratingSymbolContainer.getElementsByClassName("editMessage-rating")[0].innerHTML = editMessage.ratingTotal;
+            return;
+        }
+    });
+
 }

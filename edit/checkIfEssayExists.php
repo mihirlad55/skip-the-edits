@@ -10,7 +10,7 @@
     if (isset($_GET["id"])) {
         $essayId = $conn->real_escape_string($_GET["id"]);
     }
-    
+
     $query = "SELECT COUNT(*) AS doesEssayExist FROM Essays WHERE id=${essayId}";
     
     $result;

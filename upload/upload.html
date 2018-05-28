@@ -12,25 +12,10 @@
         <script src="upload.js"></script>
     </head>
     <body>
-        <header id="header-main">
-            <img class="navbar-icon" src="/img/logo-nb.png" id="logo"/>
-            
-            <a class="navbar-icon" id="iconAvatar" href="../..">
-                <img src="/img/avatar.png" />
-            </a>
-            <a class="navbar-icon" id="iconNotification">
-                <img src="/img/notification.png"/>
-            </a>
-            <a class="navbar-icon" id="iconUpload" href="../../upload">
-                <img src="/img/upload.png"/>
-            <a/>
-            <a class="navbar-icon" id="iconHome" href="../../home">
-                <img src="/img/home.png"/>
-            </a>
-        </header>
-        
+        <?php include_once("${_SERVER['DOCUMENT_ROOT']}/header/header.html"); ?>
+
         <header id="header-secondary">
-            <h1>View Essay</h1>
+            <h1>Upload Essay</h1>
         </header>
         
         <form action="preview/" method="POST" enctype="multipart/form-data">
@@ -58,10 +43,13 @@
                 
             <section>
                 <div class="control-group-file">
-                    <label>File</label>
-                    <input id="filePicker" type="file" name="file">
+                    <div id="fileInputContainer">
+                        <input id="filePicker" type="file" name="file" onchange="document.getElementById('inputFilePath').value = file.value.substr(12);">
+                        <button type="button">Upload File</button>
+                        <input type="text" id="inputFilePath" readonly>
+                    </div>
                 </div>
-                <input type="submit" id="btnUpload">
+                <button type="submit" id="btnUpload">Upload</button>
             </section>
         </form>
         
