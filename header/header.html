@@ -1,9 +1,17 @@
 <header id="header-main">
     <link rel="stylesheet" href="/header/header.css">
     <img class="navbar-icon" src="/img/logo-nb.png" id="logo"/>
-    <a class="navbar-icon" id="iconAvatar" href="../login/?logout=1">
+    <span class="navbar-icon" id="iconAvatar">
         <img src="/img/avatar.png"/>
-    </a>
+        <span id="menu">
+            <div id="user">
+                <img src="/img/avatar.png"/>
+                <p><?php echo $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'] ?></p>
+            </div>
+            <a href="">Settings</a>
+            <a href="../login/?logout=1">Log Out</a>
+        </span>
+    </span>
     <a class="navbar-icon" id="iconNotification">
         <img src="/img/notification.png"/>
     </a>
