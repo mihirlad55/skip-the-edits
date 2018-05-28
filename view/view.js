@@ -105,6 +105,11 @@ function refreshChanges()
 {
     var editorId = document.getElementById("dropDownEditor").value;
     var page = richTextField.document.getElementById("page");
+
+    page.innerHTML = hiddenPage.innerHTML;
+    richTextField.document.getElementById("containerChanges").innerHTML = "";
+    changes = [ ];
+
     var pageHTML = page.innerHTML;
     
     var selection;
