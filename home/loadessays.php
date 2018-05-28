@@ -1,8 +1,16 @@
 <?php foreach ($essays as $essay): ?>
-    <a class="content tile" href="../edit?id=<?php echo $essay['id'] ?>">
+    <div class="content tile">
         <p class="essayname"><?php echo $essay['title'] ?></p>
         <div class="preview">
             <?php echo file_get_contents('../files/' . $essay['id'] . '.txt', true) ?>
         </div>
-    </a>
+        <div class="desc">
+            <p class="essaytitle"><?php echo $essay['title'] ?></p>
+            <p class=""><?php echo $essay['instructions'] ?></p>
+            <div class="buttonbar">
+                <a href="../view?id=<?php echo $essay['id'] ?>">View</a>
+                <a href="../edit?id=<?php echo $essay['id'] ?>">Edit</a>
+            </div>
+        </div>
+    </div>
 <?php endforeach ?>

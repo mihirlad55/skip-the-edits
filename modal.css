@@ -7,6 +7,12 @@
     background-color: rgba(255,255,255,0.4);
 }
 
+@keyframes popin {
+    0% {transform:scale(0.1)}
+    60% {transform:scale(1.1)}
+    100% {transform:scale(1)}
+}
+
 #popup {
     display: block;
     background-color: white;
@@ -17,7 +23,7 @@
     border-radius: 2px;
     box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.2);
     animation-name: popin;
-    animation-duration: 0.15s;
+    animation-duration: 0.2s;
 }
 
 #popuptext {

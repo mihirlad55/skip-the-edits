@@ -1,7 +1,10 @@
 <?php
-    $_POST['retrieveessays'] = 1;
     include_once '../php/server.php';
     include_once '../php/logincheck.php';
+
+    if (!isset($_GET['sort'])) {
+        header('location: ../home/?sort=newest');
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,14 +36,28 @@
             </div>
         </div>
         <div class="col-15" style="padding:0">
-            <h3>All Essays</h3>
+            <div id="menubar">
+                <h3>All Essays</h3>
+                <span><a href="../home/">Temp</a></span>
+                <span><a href="../home/?sort=premium" id="premium">Premium</a></span>
+                <span><a href="../home/?sort=newest" id="newest">Newest</a></span>
+            </div>
             <div id="essays">
-                <?php require_once('loadessays.php') ?>
-                <a class="tile"></a>
-                <a class="tile"></a>
+                <?php require_once 'loadessays.php' ?>
+                <a class="tile empty"></a>
+                <a class="tile empty"></a>
             </div>
         </div>
     </div>
 </body>
 <script src="home.js"></script>
+<?php
+echo '
+    <script>
+        var target = "' . $_GET['sort'] . '";' . '
+        document.getElementById("premium").classList.remove("active");
+        document.getElementById("newest").classList.remove("active");
+        document.getElementById(target).classList.add("active");
+    </script>';
+?>
 </html>

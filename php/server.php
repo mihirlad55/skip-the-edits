@@ -76,8 +76,22 @@
         }
     }
 
-    if (isset($_POST['retrieveessays'])) {
-        $sql = "SELECT * FROM Essays";
+    if (isset($_POST['newest'])) {
+        $_POST['retrieveessays'] = 'newest';
+    }
+    
+    if (isset($_POST['premium'])) {
+        $_POST['retrieveessays'] = 'premium';
+    }
+
+    if (isset($_GET['sort'])) {
+        if ($_GET['sort'] == 'newest') {
+            $sql = "SELECT * FROM Essays";
+        }
+        if ($_GET['sort'] == 'premium') {
+            $sql = "SELECT * FROM Essays WHERE editorType='premium'";
+        }
+        
         $result = $conn->query($sql);
 
         while ($row = $result->fetch_assoc()) {

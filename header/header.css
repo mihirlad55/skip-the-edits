@@ -28,6 +28,7 @@
 }
 
 #header-main #logo {
+    cursor: default;
     margin: 0;
     padding: 0.3125rem;
     float: left;
