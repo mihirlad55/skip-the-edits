@@ -6,7 +6,7 @@
 
     if (!isset($_SESSION['user'])) {
         session_destroy();
-        header("location: ${_SERVER['DOCUMENT_ROOT']}/login/");
+        header("location: /login/");
     }
 
     if (isset($_SESSION['msg'])) {
