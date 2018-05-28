@@ -9,14 +9,21 @@ body {
 
 /* Header Code */
 
-h1 {
+#header-secondary {
+    padding-top: 3.5rem !important;
+    background-color: #4A86E8;
+    height: initial !important;
+}
+
+#header-secondary h1 {
     text-align: center;
     color: #FFFFFF;
     font-size: 2rem;
-    padding: 4rem 0 2rem 0;
+    padding: 4rem 0 2rem 0 !important;
+    line-height: initial !important;
 }
 
-h2 {
+#header-secondary h2 {
     text-align: center;
     color: white;
     font-size: 1.2rem;
@@ -142,7 +149,7 @@ h2 {
 }
 
 .desc {
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     position: absolute;
     top: 0;
     width: 100%;
@@ -159,7 +166,7 @@ h2 {
 
 .essaytitle {
     font-weight: bold;
-    padding-bottom: 1rem;
+    padding-bottom: 0.8rem;
 }
 
 .buttonbar {
