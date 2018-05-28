@@ -76,20 +76,13 @@
         }
     }
 
-    if (isset($_POST['newest'])) {
-        $_POST['retrieveessays'] = 'newest';
-    }
-    
-    if (isset($_POST['premium'])) {
-        $_POST['retrieveessays'] = 'premium';
-    }
-
     if (isset($_GET['sort'])) {
         if ($_GET['sort'] == 'newest') {
             $sql = "SELECT * FROM Essays";
-        }
-        if ($_GET['sort'] == 'premium') {
+        } else if ($_GET['sort'] == 'premium') {
             $sql = "SELECT * FROM Essays WHERE editorType='premium'";
+        } else if ($_GET['sort'] == 'free') {
+            $sql = "SELECT * FROM Essays WHERE editorType='free'";
         }
         
         $result = $conn->query($sql);
