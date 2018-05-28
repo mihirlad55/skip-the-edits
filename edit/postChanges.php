@@ -1,10 +1,11 @@
 <?php
     
+    require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
+
     if ($_SERVER["REQUEST_METHOD"] != "POST") die("Not a POST Request!");
     
     session_start();
-    $_SESSION["userId"] = 1;
-    $editorId = $_SESSION["userId"];
+    $editorId = $_SESSION["user"]["id"];
     session_abort();
     
     $changes = json_decode($_POST["changes"], true);

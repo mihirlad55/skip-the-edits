@@ -1,0 +1,6 @@
+
+                <br>
+<b>Notice</b>:  Undefined index: extension in <b>C:\Users\Shichao\Documents\Grade 12\Semester 2\Computer Science\master\upload\preview\getRawFileText.php</b> on line <b>9</b><br>
+<br>
+<b>Notice</b>:  Undefined index: extension in <b>C:\Users\Shichao\Documents\Grade 12\Semester 2\Computer Science\master\upload\preview\getRawFileText.php</b> on line <b>9</b><br>
+Error: Not a supported file format.

@@ -1,32 +1,21 @@
+<?php
+    require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
+    require_once("checkIfEssayExists.php");
+?>
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edit an Essay</title>
-        <link href="../default.css" rel="stylesheet"/>
+        <link href="/default.css" rel="stylesheet"/>
         <link href="edit.css" rel="stylesheet"/>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="edit.js"></script>
-        <script src="../general.js"></script>
+        <script src="/general.js"></script>
     </head>
     <body onload="enableEditMode();">
-        <header id="header-main">
-            <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
-            
-            <a class="navbar-icon" id="iconAvatar" href="../..">
-                <img src="../img/avatar.png" />
-            </a>
-            <a class="navbar-icon" id="iconNotification">
-                <img src="../img/notification.png"/>
-            </a>
-            <a class="navbar-icon" id="iconUpload" href="../../upload">
-                <img src="../img/upload.png"/>
-            <a/>
-            <a class="navbar-icon" id="iconHome" href="../../home">
-                <img src="../img/home.png"/>
-            </a>
-        </header>
+            <?php include_once("${_SERVER['DOCUMENT_ROOT']}/header/header.html"); ?>
         
         <header id="header-secondary">
             <h1>Edit Essay</h1>
@@ -86,16 +75,16 @@
             <div id="panelMark">
                 <h2>Mark As</h2>
                 <textarea id="txtComment" type="text" rows="9" placeholder="Add Comment Related to Highlight..." onkeydown="updateCharacterCounter();" onkeyup="updateCharacterCounter();"></textarea>
-                <div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/grammar.png" onclick="createChangeHTML(EnumChangeType.GRAMMAR);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/diction.png" onclick="createChangeHTML(EnumChangeType.DICTION);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/cliche.png" onclick="createChangeHTML(EnumChangeType.CLICHE);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/length.png" onclick="createChangeHTML(EnumChangeType.LENGTH);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/overused.png" onclick="createChangeHTML(EnumChangeType.OVERUSED);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/plagiarism.png" onclick="createChangeHTML(EnumChangeType.PLAGIARISM);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/pronoun.png" onclick="createChangeHTML(EnumChangeType.PRONOUN);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/repeats.png" onclick="createChangeHTML(EnumChangeType.REPEATS);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/style.png" onclick="createChangeHTML(EnumChangeType.STYLE);"></div><!--
-             --><div class="container-edit-icon"><img class="edit-icon" src="../img/edit-icons/thesaurus.png" onclick="createChangeHTML(EnumChangeType.THESAURUS);"></div>
+                <div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/grammar.png" onclick="createChangeHTML(EnumChangeType.GRAMMAR);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/diction.png" onclick="createChangeHTML(EnumChangeType.DICTION);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/cliche.png" onclick="createChangeHTML(EnumChangeType.CLICHE);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/length.png" onclick="createChangeHTML(EnumChangeType.LENGTH);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/overused.png" onclick="createChangeHTML(EnumChangeType.OVERUSED);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/plagiarism.png" onclick="createChangeHTML(EnumChangeType.PLAGIARISM);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/pronoun.png" onclick="createChangeHTML(EnumChangeType.PRONOUN);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/repeats.png" onclick="createChangeHTML(EnumChangeType.REPEATS);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/style.png" onclick="createChangeHTML(EnumChangeType.STYLE);"></div><!--
+             --><div class="container-edit-icon"><img class="edit-icon" src="/img/edit-icons/thesaurus.png" onclick="createChangeHTML(EnumChangeType.THESAURUS);"></div>
                 <button id="btnFinishMarking" onclick="showPanelFinalMessage();">Finish Marking</button>
             </div>
             <div id="panelFinalMessage">
@@ -111,15 +100,7 @@
         
         <div name="hiddenPage" style="display: none; white-space: pre-wrap;" id="hiddenPage">
         <?php
-            session_start();
                 
-            /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
-            {
-                session_abort();
-                die("Not Logged In!");
-            }*/
-            
-            
             $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
             
             echo readfile($filePath);

@@ -1,5 +1,7 @@
 <?php
 
+    require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
+
     if ($_SERVER["REQUEST_METHOD"] != "GET") die("Not a GET Request!");
     
     require_once("../php/dbconnect.php");
@@ -7,7 +9,7 @@
     $essayId = $conn->real_escape_string($_GET["id"]);
     
     session_start();
-    $userId = $_SESSION["userId"];
+    $userId = $_SESSION["user"]["id"];
     session_abort();
     
     $query = "
@@ -54,7 +56,9 @@
             ON
             	UserApprovalRatings.userIdRated = Edits.editorId
             WHERE
-            	Edits.essayId = $essayId";
+                Edits.essayId = $essayId
+			GROUP BY
+				EditMessages.id";
     
     $result;
     
@@ -66,7 +70,9 @@
     {
         $row["id"] = intval($row["id"]);
         $row["editorId"] = intval($row["editorId"]);
-        $row["rating"] = intval($row["rating"]);
+        $row["editId"] = intval($row["editId"]);
+        $row["ratingTotal"] = intval($row["ratingTotal"]);
+        $row["approvalRating"] = intval($row["approvalRating"]);
         array_push($editMessages, $row);
     }
     

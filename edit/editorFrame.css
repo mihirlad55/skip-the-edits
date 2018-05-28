@@ -61,3 +61,15 @@ body {
     font-family: arial;
     font-size: 0.84rem;
 }
+
+.change-remove {
+    position: absolute;
+    right: 3px;
+    top: 0;
+    font-family: arial;
+    cursor: pointer;
+}
+
+.change-remove:hover {
+    color: #bdbdbd;
+}

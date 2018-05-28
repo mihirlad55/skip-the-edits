@@ -1,11 +1,16 @@
+<?php
+    require_once("${_SERVER['DOCUMENT_ROOT']}/php/logincheck.php");
+    require_once("checkIfEssayExists.php");
+?>
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>View Essay</title>
-        <link href="../default.css" rel="stylesheet"/>
+        <link href="/default.css" rel="stylesheet"/>
         <link href="view.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="view.js"></script>
         <script>
                 allChanges = JSON.parse('<?php require_once("getChanges.php"); ?>');
@@ -14,23 +19,8 @@
                 document.head.removeChild(document.head.getElementsByTagName("script")[document.head.getElementsByTagName("script").length - 1]);
         </script>
     </head>
-    <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges();">
-        <header id="header-main">
-            <img class="navbar-icon" src="../img/logo-nb.png" id="logo"/>
-            
-            <a class="navbar-icon" id="iconAvatar" href="../..">
-                <img src="../img/avatar.png" />
-            </a>
-            <a class="navbar-icon" id="iconNotification">
-                <img src="../img/notification.png"/>
-            </a>
-            <a class="navbar-icon" id="iconUpload" href="../../upload">
-                <img src="../img/upload.png"/>
-            <a/>
-            <a class="navbar-icon" id="iconHome" href="../../home">
-                <img src="../img/home.png"/>
-            </a>
-        </header>
+    <body onload="enableEditMode(); refreshDropDownEditors(); refreshChanges(); loadEditMessages();">
+        <?php include_once("${_SERVER['DOCUMENT_ROOT']}/header/header.html"); ?>
         
         <header id="header-secondary">
             <h1>View Essay</h1>
@@ -89,15 +79,7 @@
         
         <div name="hiddenPage" style="display: none; white-space: pre-wrap;" id="hiddenPage">
         <?php
-            session_start();
-                
-            /*if (!$_SESSION["isLoggedIn"] || $_SERVER["REQUEST_METHOD"] != "GET")
-            {
-                session_abort();
-                die("Not Logged In!");
-            }*/
-            
-            
+        
             $filePath = $_SERVER["DOCUMENT_ROOT"] . "/files/" . $_GET["id"] . ".txt";
             
             echo readfile($filePath);
@@ -113,7 +95,7 @@
                 <h2><?php require_once("getNumberOfEdits.php"); ?> Edits</h2>
             </header>
             
-            <div class="editMessage">
+            <!--<div class="editMessage">
                 <div class="editMessage-ratingSymbolContainer">
                     <div class="editMessage-btnRate editMessage-btnLike">▲</div>
                     <div class="editMessage-rating">5</div>
@@ -122,12 +104,12 @@
                 <div class="editMessage-message">Demonstrating weak critical thinking, this essay states a point of view (I do believe that any obstacle or disadvantage can be turned into something good) but offers little support beyond an insufficient discussion of the acting example given in the passage. 
                 </div>
                 <div class="editMessage-editorProfileBox">
-                    <img class="editMessage-profilePicture" src="../img/profile/1.jpeg">
+                    <img class="editMessage-profilePicture" src="/img/profile/1.jpeg">
                     <div class="editMessage-editorName">Ravi Panwar</div>
                     <div class="editMessage-editorProfession">High School Student</div>
                     <div class="editMessage-approvalRating">99% Approval Rate</div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </body>
 </html>

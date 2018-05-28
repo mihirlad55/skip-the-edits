@@ -1,7 +1,7 @@
 /* global richTextField page hiddenPage getCookie() */
 
 var changes = [ ];
-var changesTopPos = [ ];
+var id = -1;
 
 var EnumChangeType = { 
     "CLICHE" :      0,
@@ -42,7 +42,6 @@ function getEnumChangeTypeString(type)
 function enableEditMode() {
     richTextField.document.designMode = "On";
     richTextField.document.getElementById("page").innerHTML = hiddenPage.innerHTML;
-    hiddenPage.innerHTML = "";
 }
 
 function execCmd (command, args) {
@@ -59,12 +58,14 @@ function getSelectionRange()
 function createChangeHTML(type)
 {
     var selectionRange = getSelectionRange();
-    var startOffset = (selectionRange.startOffset < selectionRange.endOffset) ? selectionRange.startOffset : selectionRange.endOffset;
-    var endOffset = (selectionRange.startOffset < selectionRange.endOffset) ? selectionRange.endOffset : selectionRange.startOffset;
+    var startOffset = selectionRange.startOffset;
+    var endOffset = selectionRange.endOffset;
     
     var selectionStartElement = selectionRange.startContainer;
+    var selectionEndElement = selectionRange.endContainer;
     var currentSibling = richTextField.document.getElementById("page").firstChild;
     var totalStartOffset = 0;
+    var totalEndOffset = 0;
 
     if (richTextField.document.getElementById("page").getElementsByTagName("font")[0])
     {
@@ -83,24 +84,49 @@ function createChangeHTML(type)
             }
             else currentSibling = currentSibling.nextSibling;
         }
+
+        currentSibling = richTextField.document.getElementById("page").firstChild;
+
+        while ( currentSibling != selectionEndElement )
+        {
+            if (currentSibling.nodeName == "#text") totalEndOffset += currentSibling.length;
+            
+            if (!currentSibling.length && currentSibling.firstChild)
+            {
+                currentSibling = currentSibling.firstChild;
+            }
+            else if (!currentSibling.nextSibling && currentSibling.parentNode != richTextField.document.getElementById("page"))
+            {
+                if (currentSibling.parentNode.nextSibling) currentSibling = currentSibling.parentNode.nextSibling;
+                else break;
+            }
+            else currentSibling = currentSibling.nextSibling;
+        }
     }
     
     startOffset += totalStartOffset;
-    endOffset += totalStartOffset;
+    endOffset += totalEndOffset;
     
+    if (startOffset > endOffset) {
+        let tempOffset = startOffset;
+        startOffset = endOffset;
+        endOffset = tempOffset;
+    }
+
     var change = {
         id: changes.length,
         type: getEnumChangeTypeString(type),
         selection: richTextField.document.getElementById("page").innerText.substr(startOffset, endOffset - startOffset + 1),
         startOffset: startOffset,
         endOffset: endOffset,
+        topPos: 0,
         comment: txtComment.value
     };
     
     changes.push(change);
     
         
-    var id = changes.length - 1;
+    id++;
     var idx = 0;
     
     if (changes.length != 0)
@@ -122,7 +148,7 @@ function createChangeHTML(type)
     
     execCmd("backColor", "#FFFFFE");
     
-    changesTopPos.push(richTextField.document.getElementById("page").querySelector("[style='background-color: rgb(255, 255, 254);'").offsetTop);
+    changes[id].topPos = richTextField.document.getElementById("page").querySelector("[style='background-color: rgb(255, 255, 254);'").offsetTop;
 
     execCmd("undo", "");
     execCmd("foreColor", "#0abb00");
@@ -131,9 +157,10 @@ function createChangeHTML(type)
     updateCharacterCounter();
   
     var HTML = 
-                "<div class='change' contentEditable='false' style='top: " + changesTopPos[id].toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
+                "<div class='change' contentEditable='false' style='top: " + changes[id].topPos.toString() + "px' id='change" + id.toString() + "' onmouseover='showComment(" + id.toString() + ");' onmouseout='hideComment(" + id.toString() + ");'>" +
+                    "<div class='change-remove' onclick='parent.removeChange(" + id.toString() + ")'>x</div>" +
                     "<div class='change-main-content'>" +
-                        "<img class='change-picture' src='../img/edit-icons/" + getEnumChangeTypeString(type).toLowerCase() + ".png'>" +
+                        "<img class='change-picture' src='/img/edit-icons/" + getEnumChangeTypeString(type).toLowerCase() + ".png'>" +
                         "<p class='change-selection'>" + selectionText  + "</p>" +
                     "</div>" +
                     "<p class='change-comment hidden'>" + change.comment + "</p>" +
@@ -163,8 +190,9 @@ function sortChanges()
     var cElement;
     var pElementBottom = 0;
     var cId = 0;
+    var cTopPos = 0;
     
-    changeElements[0].style.top = changesTopPos[changeElements[0].id.substr(6, changeElements[0].id.length - 6)];
+    changeElements[0].style.top = changes[getChangeIndexFromId(changeElements[0].id.substr(6, changeElements[0].id.length - 6))].topPos;
 
     for (var i = 1; i < changeElements.length; i++)
     {
@@ -172,8 +200,17 @@ function sortChanges()
         cElement = changeElements[i];
         cId = cElement.id.substr(6, cElement.id.length - 6);
         pElementBottom = pElement.offsetTop + pElement.offsetHeight;
-        if (changesTopPos[cId] < pElementBottom) cElement.style.top = pElementBottom.toString() + "px";
-        else cElement.style.top = changesTopPos[cId].toString() + "px";
+        cTopPos = changes[getChangeIndexFromId(cId)].topPos;
+        if (cTopPos < pElementBottom) cElement.style.top = pElementBottom.toString() + "px";
+        else cElement.style.top = cTopPos.toString() + "px";
+    }
+}
+
+function getChangeIndexFromId(id) {
+    for (let i = 0; i < changes.length; i++) {
+        if (changes[i].id == id) {
+            return i;
+        }
     }
 }
 
@@ -221,4 +258,91 @@ function postChanges()
             document.location.href = "../view?id=" + getGetVariable("id").toString();
         }
     });
+}
+
+
+
+
+
+
+
+function insertBetweenString(string, insertIndex, stringToInsert)
+{
+    return string.substr(0, insertIndex) + stringToInsert + string.substr(insertIndex);
+}
+
+
+function partitionChanges(changesArr, low, high)
+{
+    var pivot = changesArr[high];
+    var i = low - 1;
+    var tempChange;
+    
+    for (var j = low; j <= high - 1; j++)
+    {
+        if (changesArr[j].startOffset <= pivot.startOffset)
+        {
+            i++;
+            tempChange = changesArr[i];
+            changesArr[i] = changesArr[j];
+            changesArr[j] = tempChange;
+        }
+    }
+    
+    tempChange = changesArr[i + 1];
+    changesArr[i + 1] = changesArr[high];
+    changesArr[high] = tempChange;
+    return i + 1;
+}
+
+function quickSortChanges(changesArr, low, high)
+{
+    if (low < high)
+    {
+        var pi = partitionChanges(changesArr, low, high)
+        
+        quickSortChanges(changesArr, low, pi - 1);
+        quickSortChanges(changesArr, pi + 1, high);
+    }
+    
+    return changesArr;
+}
+
+function refreshChanges()
+{
+    var page = richTextField.document.getElementById("page");
+    page.innerHTML = hiddenPage.innerHTML;
+
+    var pageHTML = page.innerHTML;
+    
+    var sortedChanges = changes.slice();
+    
+    sortedChanges = quickSortChanges(sortedChanges, 0, changes.length - 1);
+    var totalOffset = 0;
+    
+    sortedChanges.forEach(function(change)
+    {
+        pageHTML = insertBetweenString(pageHTML, totalOffset + parseInt(change.startOffset), "<font color='#0abb00'>" );
+        totalOffset += "<font color='#0abb00'>".length;
+        pageHTML = insertBetweenString(pageHTML, totalOffset + parseInt(change.endOffset), "</font>" );
+        totalOffset += "</font>".length;
+    });
+    
+    page.innerHTML = pageHTML;
+}
+
+
+
+function removeChange(id) {
+    for (let i = 0; i < changes.length; i++) {
+        if (changes[i].id == id) {
+            changes.splice(i, 1);
+            break;
+        }
+    }
+    let changeElement = richTextField.document.getElementById("change" + id.toString());
+    richTextField.document.getElementById("containerChanges").removeChild(changeElement);
+
+    refreshChanges();
+    sortChanges();
 }
