@@ -137,3 +137,7 @@ h4 {
 .editMessage-approvalRating {
     font-size: 0.8rem;
 }
+
+.editMessage-rating-active {
+    color: #e4e4e4
+}

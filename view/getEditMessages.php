@@ -70,7 +70,6 @@
         $row["editorId"] = intval($row["editorId"]);
         $row["editId"] = intval($row["editId"]);
         $row["ratingTotal"] = intval($row["ratingTotal"]);
-        $row["ratingUser"] = intval($row["ratingUser"]);
         $row["approvalRating"] = intval($row["approvalRating"]);
         array_push($editMessages, $row);
     }
