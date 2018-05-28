@@ -1,0 +1,91 @@
+#profileContainer {
+    padding: 6rem;
+    font-family: arial;
+}
+
+#profilePictureContainer {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#profilePicture {
+    height: 15rem;
+    padding: 0.4rem;
+    border: 0.1rem #4A86E8 solid;
+    padding-bottom: 0.8rem;
+}
+
+#approvalContainer {
+    background-color: #4A86E8;
+    padding: 1rem;
+    color: white;
+}
+
+#pApprovalRate {
+    font-weight: bold;
+}
+
+#mainDetailsContainer {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2.4rem;
+    width: 26rem;
+    height: 20.6rem;
+    padding-top: 1.4rem;
+}
+
+#pName {
+    font-size: 2rem;
+}
+
+#pProfession {
+    color: #ababab;
+    margin-top: 0.2rem;
+}
+
+#pBio {
+    margin-top: 5rem;
+}
+
+#pJoinDate {
+    position: absolute;
+    bottom: 6rem;
+}
+
+#otherDetailsContainer {
+    display: inline-block;
+    vertical-align: top;
+    width: 11rem;
+    padding-left: 4rem;
+    border-left: 0.15rem #7fa7e8 solid;
+    height: 22rem;
+    padding-top: 1rem;
+}
+
+#pLocation {
+    margin-top: 2rem;   
+}
+
+#twitterContainer {
+    margin-top: 4rem;
+}
+
+#twitterIcon, #linkIcon {
+    width: 1rem;
+    display: inline-block;
+}
+
+#pTwitterHandle, #pWebsite {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.5rem;
+}
+
+#websiteContainer {
+}
+
+#pWebsite {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0.5rem;
+}
