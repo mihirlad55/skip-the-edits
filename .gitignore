@@ -7,8 +7,5 @@
 .eslintrc.js
 package.json
 package-lock.json
-node_modules/eslint-config-google/LICENSE
-node_modules/eslint-config-google/README.md
-node_modules/eslint-config-google/index.js
-node_modules/eslint-config-google/package.json
 .vscode/launch.json
+node_modules/
