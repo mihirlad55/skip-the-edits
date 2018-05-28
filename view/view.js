@@ -207,9 +207,11 @@ function loadEditMessages()
                     </div>
                     <div class="editMessage-message">` + editMessage.message + `</div>
                     <div class="editMessage-editorProfileBox">
-                        <object class="editMessage-profilePicture" data="/img/profile/` + editMessage.editorId.toString() + `.png" type="image/png">
-                            <img class="editMessage-profilePicture" src="/img/profile/default.jpeg">
-                        </object>
+                        <a href='/profile?id=` + editMessage.editorId + `'>
+                            <object class="editMessage-profilePicture" data="/img/profile/` + editMessage.editorId.toString() + `.png" type="image/png">
+                                <img class="editMessage-profilePicture" src="/img/profile/default.jpeg">
+                            </object>
+                        </a>
                         <div class="editMessage-editorName">` + editMessage.editorFullName + `</div>
                         <div class="editMessage-editorProfession">` + editMessage.profession + `</div>
                         <div class="editMessage-approvalRating">` + (editMessage.approvalRating * 100.0).toString() + `% Approval Rate</div>

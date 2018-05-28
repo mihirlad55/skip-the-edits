@@ -10,8 +10,9 @@
         <link href="/default.css" rel="stylesheet"/>
         <link href="profile.css" rel="stylesheet"/>
         <script src="profile.js"></script>
+        <script>var info = JSON.parse('<?php require_once("getProfileInfo.php"); ?>'); </script>
     </head>
-    <body onload="">
+    <body onload="loadInfo();">
         <?php include_once("${_SERVER['DOCUMENT_ROOT']}/header/header.html"); ?>
         
         <header id="header-secondary">
@@ -19,9 +20,33 @@
         </header>
 
         <section id="profileContainer">
-            <div id="profilePicture">
-
-            </section>
-        </div>
+            <div id="profilePictureContainer">
+                <img id='profilePicture' src='/img/profile/default.jpeg'>
+                <div id="approvalContainer">
+                    <p id="pApprovalRate">99% Approval Rate</p>
+                    <p id="pNumberOfRatings">2000 Ratings</p>
+                </div>
+            </div>
+            <div id="mainDetailsContainer">
+                <p id="pName">Ravi Panwar</p>
+                <p id="pProfession">High School Teacher</p>
+                <p id="pBio">Teacher. Writer. Musician. Artist. Swashbuckling Word-slinger.</p>
+                <p id="pJoinDate">Joined December 25, 2008</p>
+            </div>
+            <div id="otherDetailsContainer">
+                <p id="pNumberOfEdits">5000 Edits</p>
+                <p id="pNumberOfProfileViews">200 Views</p>
+                <p id="pLocation">Brampton, Ontario</p>
+                
+                <div id="twitterContainer">
+                    <img id="twitterIcon" src="/img/twitter.png">
+                    <p id="pTwitterHandle">@ravipanwar</p>
+                </div>
+                <div id="websiteContainer">
+                    <img id="linkIcon" src="/img/link.png">
+                    <p id="pWebsite">ravipanwar.com</p>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
