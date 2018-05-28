@@ -1,5 +1,6 @@
 body {
     background-color: #F7F7F7;
+    font-family: arial;
 }
 
 
@@ -18,8 +19,8 @@ form {
 
 .control-group-file {
     text-align: center;
-    display: inline-block;
     max-width: 12rem;
+    float: left;
 }
 
 form input[type="submit"] {
@@ -79,3 +80,47 @@ section:nth-child(2) {
 #panelPreview {
     display: none;
 }
+
+#fileInputContainer {
+    position: relative;
+}
+
+#fileInputContainer button {
+    position: relative;
+    top: -27px;
+    left: -2px;
+    width: 186px;
+    font-size: 13.333px;
+}
+
+input[type='file'] {
+    position: relative;
+    opacity: 0;
+    font-size: 1.1rem;
+    z-index: 2;
+}
+
+button {
+    background-color: #4f92ff;
+    color: #FFFFFF;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+button:hover {
+    background-color: #6db7ff;
+    transition-duration: 0.25s;
+}
+
+#btnUpload {
+    float: right;
+}
+
+#inputFilePath {
+    position: relative;
+    left: 12rem;
+    width: 7rem;
+    top: -3rem;
+}
+
