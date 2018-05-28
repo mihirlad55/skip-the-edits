@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background-color: #F3F3F3;
+    font-family: Arial;
+}
+
+a {
+    text-decoration: none;
+}
+
+#nav {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-right: 1rem;
+    width: 100%;
+    box-shadow: 1px 0px 5px 1px #0000007a;
+    background-color: #FBFBFB;
+    height: 4.5rem;
+}
+
+#nav img {
+    height: inherit;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+#nav a {
+    font-family: Arial;
+    float: right;
+    display: block;
+    background-color: #FBFBFB;
+    border: none;
+    font-size: 22px;
+    padding: 0.75rem;
+    margin: 0.75rem;
+    outline: none;
+    text-decoration: none;
+    color: black;
+    transition-duration: 0.1s;
+}
+
+#nav a:focus {
+    color: #1e90ff;
+}
+
+#nav #supbut {
+    border-radius: 2px;
+    background-color: #4A86E8;
+    color: #FFFFFF;
+}
+
+#nav #supbut:hover {
+    background-color: #1e90ff;
+}
+
+#nav #logbut {
+    color: #4A86E8;
+}
+
+h1 {
+    font-size: 4.5rem;
+    padding: 2rem 0;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+#gtstrt {
+    display: inline-block;
+    border: none;
+    outline: none;
+    margin-top: 2rem;
+    font-size: 1.75rem;
+    padding: 1rem;
+    border-radius: 2px;
+    background-color: #4A86E8;
+    color: #FFFFFF;
+}
+
+#gtstrt:hover {
+    background-color: #1e90ff;
+}
+
+#man {
+    width: 35rem;
+    z-index: -1;
+    position: absolute;
+    right: 2rem;
+    top: -6rem;
+}
+
+.outer {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+}
+
+.middle {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.inner {
+    position: relative;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
