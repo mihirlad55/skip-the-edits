@@ -11,43 +11,48 @@
     session_abort();
 
     $queryString = "SELECT
-                    	Users.id,
-                    	CONCAT(Users.firstName, ' ', Users.lastName) As fullName,
-                    	Users.profession,
-                    	AVG(
-                    		CASE UserApprovalRatings.rating
-                    			WHEN 'APPROVE' THEN 1
-                    			WHEN 'DISAPPROVE' THEN -1
-                    			WHEN 'NONE' THEN 0
-                    			ELSE 0
-                    		END
-                    	) AS approvalRating,
+                        Users.id,
+                        CONCAT(Users.firstName, ' ', Users.lastName) As fullName,
+                        Users.profession,
+                        Users.twitterHandle,
+                        Users.website,
+                        Users.location,
+                        Users.bio,
+                        Users.profileViews,
+                        AVG(
+                            CASE UserApprovalRatings.rating
+                                WHEN 'APPROVE' THEN 1
+                                WHEN 'DISAPPROVE' THEN -1
+                                WHEN 'NONE' THEN 0
+                                ELSE 0
+                            END
+                        ) AS approvalRating,
                         (
-                    		SELECT
-                    			COUNT(*)
-                    		FROM 
-                    			UserApprovalRatings
-                    		WHERE
-                    			userIdRated = $userId
-                    	) AS numberOfRatings,
+                            SELECT
+                                COUNT(*)
+                            FROM 
+                                UserApprovalRatings
+                            WHERE
+                                userIdRated = ${userId}
+                        ) AS numberOfRatings,
                         (
-                    		SELECT
-                    			COUNT(*)
-                    		FROM
-                    			Edits
-                    		WHERE
-                    			editorId = $userId
+                            SELECT
+                                COUNT(*)
+                            FROM
+                                Edits
+                            WHERE
+                                editorId = ${userId}
                         ) AS numberOfEdits
                     FROM 
-                    	Users
+                        Users
                     LEFT JOIN
-                    	UserApprovalRatings
+                        UserApprovalRatings
                     ON
-                    	UserApprovalRatings.userIdRated = Users.id
+                        UserApprovalRatings.userIdRated = Users.id
                     WHERE
-                    	Users.id = $userId
+                        Users.id = ${userId}
                     GROUP BY
-                    	Users.id";
+                        Users.id";
                     	
     if (!($result = $conn->query($queryString)))
     {
@@ -56,4 +61,17 @@
     }
     
     echo(json_encode($result->fetch_assoc()));
+
+    $queryString = "UPDATE
+                        Users
+                    SET 
+                        profileViews = profileViews + 1
+                    WHERE
+                        id = ${userId}";
+
+    if (!($result = $conn->query($queryString)))
+    {
+        session_abort();
+        die($conn->error);
+    }
 ?>
