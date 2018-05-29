@@ -11,8 +11,8 @@
         <link href="profile.css" rel="stylesheet"/>
         <script src="profile.js"></script>
         <script id="phpJS">
-                var info = JSON.parse('<?php require_once("getProfileInfo.php"); ?>');
-                document.head.removeChild(document.getElementById("phpJS"));
+                var info = JSON.parse('<?php require_once("getPublicProfileInfo.php"); ?>');
+                document.head.removeChild(document.head.getElementsByTagName("script")[document.head.getElementsByTagName("script").length - 1]);
         </script>
     </head>
     <body onload="loadInfo();">
