@@ -43,7 +43,7 @@
     
     $image = $_FILES["file"];
         
-    if (isset($_FILES['tmp_name'])) {
+    if ($_FILES['file']['tmp_name'] != '') {
         if ($image["type"] == "image/jpeg" || $image["type"] == "image/tif") {
             $fixedImage = fixImageOrientation(imagecreatefromstring(file_get_contents($image["tmp_name"])), $image["tmp_name"]);
         } else {
