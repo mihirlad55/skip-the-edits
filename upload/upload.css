@@ -10,6 +10,7 @@ form {
 }
 
 input[type='text'], textarea, select {
+    box-sizing: border-box;
     font-family: 'Nunito';
     display: block;
     font-size: 1rem;
@@ -20,6 +21,10 @@ input[type='text'], textarea, select {
     border: 1px solid #999999;
     border-radius: 2px;
     transition-duration: 0.1s;
+}
+
+input[type=text]:focus, textarea:focus, select:focus {
+    border: 1px solid #4f92ff;
 }
 
 
@@ -57,11 +62,10 @@ form input[type="submit"] {
 
 .control-group label, input, select {
     display: block;
-    width: 12rem;
-    max-width: 12rem;
+    max-width: 16rem;
 }
 
-.control-group label, input, select, textarea {
+.control-group label {
     font-family: arial;
 }
 
