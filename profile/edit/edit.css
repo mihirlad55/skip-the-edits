@@ -93,9 +93,13 @@ label:last-child {
     padding-bottom: 1.5rem;
 }
 
+#btnSubmit {
+    max-width: 470px;
+}
+
 [class*="col-"] {
     width: 100%;
-    float: right;
+    float: left;
     margin: 0.9375rem;
     margin-right: 5%;
 }

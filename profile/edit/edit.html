@@ -12,8 +12,8 @@
         <script src="edit.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <script id="phpJS">
-            var info = JSON.parse('<?php require_once("../getProfileInfo.php"); ?>');
-            document.head.removeChild(document.getElementById("phpJS"));
+            var info = JSON.parse('<?php require_once("getPrivateProfileInfo.php"); ?>');
+            document.head.removeChild(document.head.getElementsByTagName("script")[document.head.getElementsByTagName("script").length - 1]);
         </script>
     </head>
     <body onload="loadInfo();">
@@ -23,14 +23,14 @@
             <h1>Edit Profile</h1>
         </header>
 
-        <form action="editProfile.php" method="POST" onsubmit="validateForm();" enctype="multipart/form-data">
+        <form action="saveProfile.php" method="POST" onsubmit="validateForm();" enctype="multipart/form-data">
             <label class="col-8">First Name<input type="text" id="txtFirstName" name="firstName" placeholder="First Name" required></label>
             <label class="col-8">Last Name<input type="text" id="txtLastName" name="lastName" placeholder="Last Name" required></label>
             <label class="col-8">Profession<input type="text" id="txtProfession" name="profession" placeholder="Profession"></label>
             <label class="col-8">Location<input type="text" id="txtLocation" name="location" placeholder="Location"></label>
             <label class="col-8">Twitter Handle<input type="text" id="txtTwitterHandle" name="twitterHandle" placeholder="Twitter Handle"></label>
             <label class="col-8">Website<input type="text" id="txtWebsite" name="website" placeholder="Website"></label>
-            <label class="col-8">Bio<textarea id="txtBio" name="txtBio" placeholder="Bio"></textarea></label>
+            <label class="col-8">Bio<textarea id="txtBio" name="bio" placeholder="Bio"></textarea></label>
 
 
             <div class="col-8" id="fileInputContainer">
@@ -42,6 +42,8 @@
 
 
             <label class="col-16">Profile Picture Preview<img id="imagePreview"></img></label>
+            
+            <button class="col-20" id="btnSubmit">Save Profile</button>
         </form>
     </body>
 </html>
