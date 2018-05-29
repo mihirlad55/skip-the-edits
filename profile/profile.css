@@ -58,6 +58,7 @@
 }
 
 #otherDetailsContainer {
+    line-height: 1.4rem;
     display: inline-block;
     vertical-align: top;
     padding-left: 4rem;

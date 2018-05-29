@@ -18,4 +18,6 @@ function loadInfo() { // eslint-disable-line no-unused-vars
     document.getElementById('pNumberOfProfileViews').innerHTML = info
         .profileViews + ((parseInt(info.profileViews) == 1) ? ' Profile View' :
         ' Profile Views');
+    document.getElementById('profilePicture').src = '/img/profile/'
+        + info.id.toString() + '.png';
 }
