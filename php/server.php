@@ -9,24 +9,16 @@
         $email = $conn->real_escape_string($_POST['email']);
         $pass = $conn->real_escape_string($_POST['password']);
         $cpass = $conn->real_escape_string($_POST['cpassword']);
-        $hash = password_hash($pass, PASSWORD_DEFAULT);    
-        $_SESSION['email'] = $email;
-        $_SESSION['hash'] = $hash;
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
 
         $check = "SELECT * FROM Users WHERE email = '$email'";
         $result = $conn->query($check);
 
         if ($result->num_rows == 0) {
             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                if (strlen($pass) > 5) {
-                    if ($pass == $cpass) {
-                        header('location: ../register/');
-                    } else {
-                        $errors[] = "Passwords do not match.";
-                    }
-                } else {
-                    $errors[] = "Password must be at least 6 characters.";
-                }
+                $_SESSION['email'] = $email;
+                $_SESSION['hash'] = $hash;
+                header('location: ../register/');
             } else {
                 $errors[] = "Please enter a valid email address.";
             }
@@ -47,11 +39,10 @@
                 VALUES ('$email', '$hash', '$firstname', '$lastname', '$acctype')";
 
         if ($conn->query($sql) === true) {
-            $_SESSION['user'] = array('email' => $email, 'firstName' => $firstname,
-                                    'lastName' => $lastname, 'accountType' => $acctype);
-            $_SESSION['msg'] = "Welcome to the Skip the Edits, " . $firstname . "!";
-
-            header('location: ../home/');
+            unset($_SESSION['email']);
+            unset($_SESSION['hash']);
+            $_SESSION['success'] = "Account succesfully registered. Login to continue.";
+            header('location: ../login/');
         } else {
             $errors[] = "There was an error registering your account. Please try again later.";
         }
@@ -70,7 +61,7 @@
             $_SESSION['user'] = array('id' => $user['id'], 'firstName' => $user['firstName'], 'lastName' => $user['lastName'],
                                         'accountType' => $user['accountType']);
             $_SESSION['msg'] = "Welcome back, " . $_SESSION['user']['firstName'] . "!";
-            header('location: ../home/');
+            header('location: ../home/?sort=newest');
         } else {
             $errors[] = "Email or password is incorrect.";
         }

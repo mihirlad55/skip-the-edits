@@ -14,7 +14,9 @@
         <a id="close" onclick="closemodal()">&times;</a>
         <div id="popuptext">
             <p style="font-size:1rem; font-weight:bold; padding-top:1.875rem">Alert</p>
-            <p id="alert"><?php echo $_SESSION['msg'] ?></p>
+            <p id="alert">
+                <?php echo isset($_SESSION['msg']) ? $_SESSION['msg'] : $_SESSION['success']; ?>
+            </p>
         </div>
     </div>
 </div>
