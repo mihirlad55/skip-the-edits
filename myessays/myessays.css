@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background-color: #F7F7F7;
+}
+
+/* Header Code */
+
+#header-secondary {
+    padding-top: 3.75rem !important;
+    background-color: #4A86E8;
+    height: initial !important;
+}
+
+#header-secondary h1 {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 2rem;
+    padding: 4rem 0 2rem 0 !important;
+    line-height: initial !important;
+}
+
+#header-secondary h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0 0 3.5rem 0;
+}
+
+#header-main #logo {
+    box-sizing: initial;
+}
+
+/* General Boxes */
+
+.rows {
+    margin: auto;
+    padding: 0.9375rem 0.9375rem 0 0.9375rem;
+    max-width: 1300px;
+}
+
+.content {
+    border-radius: 0.125rem;
+    overflow: hidden;
+    text-align: center;
+    color: black;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
+}
+
+#menubar {
+    margin: 0 auto;
+    padding: 0 0.9375rem;
+    height: 3.075rem;
+}
+
+#menubar h3 {
+    font-family: Arial;
+    font-size: 1.2rem;
+    padding: 0.9375rem 0;
+    float: left;
+}
+
+#menubar span {
+    height: 3.075rem;
+    float: right;
+    display: block;
+}
+
+#menubar a {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    outline: none;
+    font-size: 0.75rem;
+    display: block;
+    border: 1px solid black;
+    border-radius: 4px;
+    line-height: 1.625rem;
+    width: 4.5rem;
+    margin: 0.6625rem 0 0.6625rem 0.6625rem;
+}
+
+#menubar a:focus {
+    border: 1px solid #4A86E8;
+    color: #4A86E8;
+    background-color: white;
+}
+
+#menubar .active {
+    border: 1px solid #4A86E8;
+    color: #4A86E8;
+    background-color: white;
+}
+
+#essays {
+    display: flex;
+    max-height: 39rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow: hidden;
+    padding-bottom: 0.9375rem;
+}
+
+.locked {
+    overflow-y: scroll !important;
+}
+
+.tile {
+    position: relative;
+    height: 11rem;
+    width: 14rem;
+    flex-grow: 1;
+    cursor: pointer;
+    margin: 0.9375rem;
+    float: left;
+    transition-duration: 0.1s;
+    text-decoration: none;
+}
+
+.tile:hover {
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.3);
+}
+
+.tile:hover .desc {
+    opacity: 1;
+}
+
+.tile:active {
+    opacity: 0.8;
+}
+
+.premium {
+    width: 1.25rem;
+    position: absolute;
+    left: 0.4rem;
+    top: 0.4rem;
+}
+
+.empty {
+    height: 0;
+    margin: 0 0.9375rem;
+}
+
+.essayname {
+    padding: 0.5rem;
+}
+
+.preview {
+    font-family: 'Times New Roman';
+    white-space: pre-wrap;
+    text-align: left;
+    font-size: 0.35rem;
+    padding: 0 1.75rem;
+}
+
+.desc {
+    padding: 1rem 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(211, 211, 211, 0.85);
+}
+
+.desc p {
+    text-align: left;
+    width: 100%;
+    font-size: 0.9rem;
+    float: left;
+    padding: 0 1rem;
+}
+
+.essaytitle {
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.buttonbar {
+    width: 100%;
+    position: absolute;
+    bottom: 0.75rem;
+    display: flex;
+    padding: 0 0.5rem;
+}
+
+.desc a {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    flex-grow: 1;
+    display: block;
+    text-decoration: none;
+    border-radius: 2px;
+    color: white;
+    margin: 0 0.5rem;
+    background-color: #4a86e8;
+    transition-duration: 0.1s;
+}
+
+.desc a:hover {
+    background-color: dodgerblue;
+}
+
+.button {
+    display: block;
+    font-size: 14px;
+    color: white;
+    border: none;
+    text-align: center;
+    margin: 0.9375rem auto;
+    max-width: 100px;
+    cursor: pointer;
+    background-color: #4a86e8;
+    transition-duration: 0.1s;
+    padding: 0.625rem;
+    border-radius: 2px;
+}
+
+.button:hover, .button:focus {
+    background-color: dodgerblue;
+}
+
+.boxtitle {
+    margin: 0.75rem 0;
+}
+
+/* Responsive Stuff */
+
+.content::after {
+    display: table;
+}
+
+[class*="col-"] {
+    width: 100%;
+    float: right;
+    padding: 0.9375rem;
+}
+
+@media screen and (min-width: 600px) {
+    .col-1 {width: 5%;}
+    .col-2 {width: 10%;}
+    .col-3 {width: 15%;}
+    .col-4 {width: 20%;}
+    .col-5 {width: 25%;}
+    .col-6 {width: 30%;}
+    .col-7 {width: 35%;}
+    .col-8 {width: 40%;}
+    .col-9 {width: 45%;}
+    .col-10 {width: 50%;}
+    .col-11 {width: 55%;}
+    .col-12 {width: 60%;}
+    .col-13 {width: 65%;}
+    .col-14 {width: 70%;}
+    .col-15 {width: 75%;}
+    .col-16 {width: 80%;}
+    .col-17 {width: 85%;}
+    .col-18 {width: 90%;}
+    .col-19 {width: 95%;}
+    .col-20 {width: 100%;}
+}

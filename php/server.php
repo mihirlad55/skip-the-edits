@@ -68,12 +68,28 @@
     }
 
     if (isset($_GET['sort'])) {
+        $id = $_SESSION['user']['id'];
+        $pieces = explode("?", $_SERVER['REQUEST_URI']);
+        $page = $pieces[0];
+
         if ($_GET['sort'] == 'newest') {
-            $sql = "SELECT * FROM Essays";
+            if ($page == '/home/') {
+                $sql = "SELECT * FROM Essays";
+            } else {
+                $sql = "SELECT * FROM Essays WHERE userId = '$id'";
+            }
         } else if ($_GET['sort'] == 'premium') {
-            $sql = "SELECT * FROM Essays WHERE editorType='premium'";
+            if ($page == '/home/') {
+                $sql = "SELECT * FROM Essays WHERE editorType='premium'";
+            } else {
+                $sql = "SELECT * FROM Essays WHERE editorType='premium' AND userId = '$id'";
+            }
         } else if ($_GET['sort'] == 'free') {
-            $sql = "SELECT * FROM Essays WHERE editorType='free'";
+            if ($page == '/home/') {
+                $sql = "SELECT * FROM Essays WHERE editorType='free'";
+            } else {
+                $sql = "SELECT * FROM Essays WHERE editorType='free' AND userId = '$id'";
+            }
         }
         
         $result = $conn->query($sql);

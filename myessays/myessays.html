@@ -1,0 +1,52 @@
+<?php
+    include_once '../php/server.php';
+    include_once '../php/logincheck.php';
+
+    if (!isset($_GET['sort'])) {
+        header('location: ../myessays/?sort=newest');
+    }
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta enctype="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Essays</title>
+    <link href="/default.css" rel="stylesheet"/>
+    <link href="../header/header.css" rel="stylesheet">
+    <link href="myessays.css" rel="stylesheet"/>
+    <link href="../modal.css" rel="stylesheet">
+    <link rel="icon" type="image/jpg" href="../favicon.jpg">
+</head>
+<body>
+    <?php include_once "${_SERVER['DOCUMENT_ROOT']}/header/header.html" ?>
+    <header id="header-secondary">
+        <h1>My Essays</h1>
+        <h2><?php echo count($essays) . " Essays found" ?></h2>
+    </header>
+    <div class="rows">
+        <div class="col-20" style="padding:0">
+            <div style="width:100%; display:flex">
+                <div id="menubar">
+                    <span><a href="../myessays/?sort=free" id="free">Free</a></span>
+                    <span><a href="../myessays/?sort=premium" id="premium">Premium</a></span>
+                    <span><a href="../myessays/?sort=newest" id="newest">Newest</a></span>
+                </div>
+            </div>
+            <div id="essays">
+                <?php require_once '../home/loadessays.php' ?>
+                <a class="tile empty"></a>
+                <a class="tile empty"></a>
+                <a class="tile empty"></a>
+            </div>
+        </div>
+    </div>
+</body>
+<?php
+echo '
+    <script>
+        var target = "' . $_GET['sort'] . '";' . '
+        document.getElementById(target).classList.add("active");
+    </script>';
+?>
+</html>
