@@ -9,6 +9,19 @@ form {
     text-align: center;
 }
 
+input[type='text'], textarea, select {
+    font-family: 'Nunito';
+    display: block;
+    font-size: 1rem;
+    padding: 0.75rem;
+    margin: 0.875rem 0 1.75rem 0;
+    outline: none;
+    width: 100%;
+    border: 1px solid #999999;
+    border-radius: 2px;
+    transition-duration: 0.1s;
+}
+
 
 .control-group {
     display: block;
@@ -122,5 +135,8 @@ button:hover {
     left: 12rem;
     width: 7rem;
     top: -3rem;
+    font-family: arial;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
 }
-
