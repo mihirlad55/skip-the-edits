@@ -2,15 +2,20 @@
     <link rel="stylesheet" href="/header/header.css">
     <img class="navbar-icon" src="/img/logo-nb.png" id="logo"/>
     <span class="navbar-icon" id="iconAvatar">
-        <img src="/img/avatar.png"/>
+        <object class="avatar" data="/img/profile/<?php echo $_SESSION['user']['id'] ?>.png" type="image/png">
+            <img class="avatar" src="/img/profile/default.jpeg">
+        </object>
         <span id="menu">
             <div id="user">
-                <img src="/img/avatar.png"/>
+                    <object class="avatar" data="/img/profile/<?php echo $_SESSION['user']['id'] ?>.png" type="image/png">
+                        <img class="avatar" src="/img/profile/default.jpeg">
+                    </object>
                 <p><?php echo $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName'] ?></p>
             </div>
-            <a href="../myessays/">My Essays</a>
-            <a href="../profile?id=<?php echo $_SESSION['user']['id'] ?>">Settings</a>
-            <a href="../login/?logout=1">Log Out</a>
+            <a href="/myessays/">My Essays</a>
+            <a href="/profile?id=<?php echo $_SESSION['user']['id'] ?>">My Profile</a>
+            <a href="/profile/edit">Edit Profile</a>
+            <a href="/login/?logout=1">Log Out</a>
         </span>
     </span>
     <a class="navbar-icon" id="iconNotification">

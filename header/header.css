@@ -73,7 +73,12 @@
     line-height: 4rem;
 }
 
-#menu img {
+.avatar {
+    border-radius: 50%;
+    height: 2.5rem;
+}
+
+#menu object {
     float: left;
     height: 3rem;
     margin: 0.5rem;
@@ -94,3 +99,4 @@
     height: 3.2rem;
     float: none;
 }
+
