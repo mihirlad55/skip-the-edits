@@ -28,6 +28,11 @@ body {
     overflow: hidden;
 }
 
+#signin {
+    border: 0;
+    border-bottom: 1px solid black;
+}
+
 #loginbody h1 {
     text-align: center;
     padding: 0 0 4rem 0;
@@ -35,22 +40,23 @@ body {
 }
 
 #loginbody h2 {
-    padding: 0.75rem 0;
-    text-align: center;
-}
-
-#loginbody h3 {
     font-size: 1.125rem;
     text-align: center;
     padding-bottom: 0.875rem;
 }
 
-input {
+#loginbody h3 {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    text-align: center;
+}
+
+input[type=text], input[type=password] {
     font-family: 'Nunito';
     display: block;
     font-size: 1rem;
     padding: 0.75rem;
-    margin: 0.875rem 0 1.75rem 0;
+    margin: 0.875rem 0 1.25rem 0;
     outline: none;
     width: 100%;
     border: 1px solid #999999;
@@ -58,12 +64,34 @@ input {
     transition-duration: 0.1s;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+input[type=text]:focus, input[type=password]:focus {
     border: 1px solid #4A86E8;
 }
 
-#loginbody .button {
+.button {
+    display: block;
     border: none;
+    border-radius: 2px;
+    padding: 0.75rem;
+    margin: 0.875rem 0 1.25rem 0;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    background-color: #4A86E8;
+    transition-duration: 0.1s;
+}
+
+.submit {
+    font-family: 'Nunito';
+    display: block;
+    font-size: 1rem;
+    padding: 0.75rem;
+    margin-top: 2rem;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
     text-align: center;
     font-size: 1rem;
     color: white;
@@ -72,12 +100,16 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     transition-duration: 0.1s;
 }
 
+#loginbody .button:hover, #loginbody .button:focus, .submit:hover, .submit:focus {
+    background-color: dodgerblue;
+}
+
 #api {
     display: flex;
 }
 
 #google {
-    margin-right: 1.75rem;
+    margin-right: 0.875rem;
     background-image: url("/img/google.png");
     background-repeat: no-repeat;
     background-size: 2.1875rem;
@@ -85,24 +117,40 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
 }
 
 #microsoft {
+    margin-left: 0.875rem;
     background-image: url("/img/microsoft.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
 
-#loginbody .button:hover, #loginbody .button:focus {
-    background-color: dodgerblue;
-}
-
 .error {
     font-size: 0.875rem;
+    border-radius: 2px;
     margin: 0.875rem 0 1.75rem 0;
     padding: 0.75rem;
     border: 1px solid #a94442;
     color: #a94442;
     background-color: #f2dede;
     text-align: center;
+}
+
+@keyframes expand {
+    0% {transform:scale(0.1)}
+    60% {transform:scale(1.1)}
+    100% {transform:scale(1)}
+}
+
+#error1, #error2, #error3 {
+    display: none;
+    transition-duration: 0.3s;
+    animation-name: expand;
+    animation-duration: 0.2s;
+    margin: -0.625rem 0 1.25rem 0;
+}
+
+.true {
+    display: block !important; 
 }
 
 #logo {
@@ -144,4 +192,5 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
     .col-19 {width: 95%;}
     .col-20 {width: 100%;}
     #loginbody .col-10 {padding: 0.9375rem 3.5rem;}
+    #signin {border: 0; border-right: 1px solid black;}
 }

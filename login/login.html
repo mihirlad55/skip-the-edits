@@ -1,4 +1,11 @@
-<?php include_once '../php/server.php' ?>
+<?php
+    include_once '../php/server.php';
+
+    if (isset($_SESSION['success'])) {
+        include_once '../modal.php';
+        unset($_SESSION['success']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +14,8 @@
     <title>Login - Skip the Edits</title>
     <script link="login.js"></script>
     <link href="/default.css" rel="stylesheet"/>
-	<link href="login.css" type="text/css" rel="stylesheet">
+    <link href="login.css" type="text/css" rel="stylesheet">
+    <link href="../modal.css" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="../favicon.jpg">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
@@ -18,31 +26,37 @@
             <div class="inner">
                 <h1>Let's get Started</h1>
                 <?php include_once '../php/errors.php' ?>
-                <div class="col-10">
-                    <h3>Sign In</h3>
+                <div class="col-10" id="signin">
+                    <h2>Sign In</h2>
                     <form method="post" id="api">
-                            <input type="button" class="button" id="google">
-                            <input type="button" class="button" id="microsoft">
+                        <input type="button" class="button" id="google">
+                        <input type="button" class="button" id="microsoft">
                     </form>
-                    <h2>OR</h2>
+                    <h3>OR</h3>
                     <form method="post">
                         <input type="text" placeholder="Email" name="email"
                                 value="<?php if(isset($logemail)){echo $logemail;} unset($logemail); ?>">
                         <input type="password" placeholder="Password" name="password">
-                        <input type="submit" class="button" value="Log in" name="login">
+                        <input type="submit" class="submit" value="Log in" name="login">
                     </form>
                 </div>
-                <div class="col-10" style="border-left:1px solid black">
-                    <h3>Register Now</h3>
+                <div class="col-10">
+                    <h2>Register Now</h2>
                     <form method="post">
-                        <input type="text" placeholder="Email" name="email">
-                        <input type="password" placeholder="Password" name="password">
-                        <input type="password" placeholder="Confirm Password" name="cpassword">
-                        <input type="submit" class="button" value="Next" name="initial">
+                        <input type="text" placeholder="Email" name="email" id="email">
+                        <input type="password" placeholder="Password" name="password" id="password"
+                                onblur="displayerror(error2, 'error2'); checkall()"
+                                oninput="checklength(this); checkmatch(); checkall()">
+                        <div class="error" id="error2">Password must be at least 6 characters.</div>
+                        <input type="password" placeholder="Confirm Password" name="cpassword" id="cpassword"
+                                onblur="displayerror(error3, 'error3'); checkall()" oninput="checkmatch(); checkall()">
+                        <div class="error" id="error3">Passwords do not match.</div>
+                        <input type="submit" class="submit" value="Next" name="initial" id="next" disabled>
                     </form>
                 </div>
             <div>
 	    </div>
     </div>
 </body>
+<script src="login.js"></script>
 </html>
