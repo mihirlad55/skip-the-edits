@@ -10,7 +10,7 @@
     }
 
     if (isset($_SESSION['msg'])) {
-        require_once("${_SERVER['DOCUMENT_ROOT']}/modal.php");
+        require_once("${_SERVER['DOCUMENT_ROOT']}/modal.html");
         unset($_SESSION['msg']);
     }
 
