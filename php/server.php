@@ -61,7 +61,12 @@
             $_SESSION['user'] = array('id' => $user['id'], 'firstName' => $user['firstName'], 'lastName' => $user['lastName'],
                                         'accountType' => $user['accountType']);
             $_SESSION['msg'] = "Welcome back, " . $_SESSION['user']['firstName'] . "!";
-            header('location: ../home/?sort=newest');
+
+            if (isset($_GET['redirect'])) {
+                header("Location: ${_GET['redirect']}");
+            } else {
+                header('location: ../home/?sort=newest');
+            }
         } else {
             $errors[] = "Email or password is incorrect.";
         }

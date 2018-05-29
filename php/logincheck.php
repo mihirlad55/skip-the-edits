@@ -6,7 +6,7 @@
 
     if (!isset($_SESSION['user'])) {
         session_destroy();
-        header("location: /login/");
+        header("location: /login/?redirect=${_SERVER['REQUEST_URI']}");
     }
 
     if (isset($_SESSION['msg'])) {
