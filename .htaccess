@@ -4,3 +4,8 @@ deny from all
 DirectoryIndex index.html edit.html view.html upload.html home.html login.html register.html preview.html profile.html myessays.html
 order deny,allow
 AddType application/x-httpd-php .htm .html
+php_flag output_buffering on
+
+# HTID:5595260: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:5595260:
