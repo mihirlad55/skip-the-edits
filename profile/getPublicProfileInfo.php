@@ -6,7 +6,9 @@
 
     require_once("${_SERVER['DOCUMENT_ROOT']}/php/dbconnect.php");
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $userId = $_SESSION["user"]["id"];
     session_abort();
 

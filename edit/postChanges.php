@@ -4,7 +4,9 @@
 
     if ($_SERVER["REQUEST_METHOD"] != "POST") die("Not a POST Request!");
     
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $editorId = $_SESSION["user"]["id"];
     session_abort();
     

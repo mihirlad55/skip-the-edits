@@ -1,6 +1,8 @@
 <?php
     include_once('dbconnect.php');
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $errors = array();
     $essays = array();
     $logemail = '';

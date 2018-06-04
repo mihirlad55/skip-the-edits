@@ -6,7 +6,9 @@
 
     require_once("${_SERVER['DOCUMENT_ROOT']}/php/dbconnect.php");
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $userId = $_SESSION["user"]["id"];
     session_abort();
 
@@ -62,7 +64,9 @@
         if (in_array($image["type"], $validTypes) && intval($image["size"]) < 2000000) {
             imagejpeg($fixedImage, $newFilePath);
         } else {
-            session_start();
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
             $_SESSION['msg'] = "File Too Large!";
             session_write_close();
             die("File too Large!");
@@ -88,7 +92,9 @@
         die($conn->error);
     }
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $_SESSION['msg'] = "Profile Saved!";
     session_write_close();
 

@@ -8,7 +8,9 @@
     
     $essayId = $conn->real_escape_string($_GET["id"]);
     
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     $userId = $_SESSION["user"]["id"];
     session_abort();
     

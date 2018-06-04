@@ -2,7 +2,9 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $userID;
         if ($_SESSION["isLoggedIn"])
         {

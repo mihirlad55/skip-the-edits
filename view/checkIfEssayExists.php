@@ -17,7 +17,9 @@
     if ( !($result = $conn->query($query)) ) die($conn->error);
     
     if ($result->fetch_assoc()['doesEssayExist'] == 0) {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $_SESSION['msg'] = 'Essay does not exist!';
         session_write_close();
         header('Location: /home');
