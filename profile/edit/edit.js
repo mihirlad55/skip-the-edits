@@ -1,7 +1,10 @@
+/* exported loadInfo refreshPreview */
+
+
 /**
  * Load User Info into Inputs/Textfields
  */
-function loadInfo() { // eslint-disable-line no-unused-vars
+function loadInfo() {
     document.getElementById('txtFirstName').value = info.firstName;
     document.getElementById('txtLastName').value = info.lastName;
     document.getElementById('txtProfession').value = info.profession;
@@ -15,9 +18,9 @@ function loadInfo() { // eslint-disable-line no-unused-vars
 
 /**
  * Refresh Uploaded Image Preview
- * @param {Object} event Event Object from input file onchange
+ * @param {Event} event Event Object from input file onchange
  */
-function refreshPreview(event) { // eslint-disable-line no-unused-vars
+function refreshPreview(event) {
     document.getElementById('inputFilePath').value = document.
         getElementById('filePicker').value.substr(12);
 

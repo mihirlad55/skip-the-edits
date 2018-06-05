@@ -1,7 +1,10 @@
+/* exported loadInfo */
+
+
 /**
  * Load Profile Info into page
  */
-function loadInfo() { // eslint-disable-line no-unused-vars
+function loadInfo() {
     document.getElementById('pName').innerHTML = info.fullName;
     document.getElementById('pProfession').innerHTML = info.profession;
     document.getElementById('pApprovalRate').innerHTML = parseInt(
