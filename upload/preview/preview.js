@@ -1,12 +1,16 @@
+/* exported validateForm */
+
+
 /**
  * Validate Form and Pass Page Text to Input
- * @param {Object} event Event Object for onsubmit event
+ * @param {Event} event Event Object for onsubmit event
  */
 function validateForm(event) {
-    document.getElementById('txtPage').innerHTML = document.getElementById("page").innerHTML;
+    let richPage = document.getElementById('page');
+    document.getElementById('txtPage').innerHTML = richPage.innerHTML;
 
-    if (document.getElementById("page").innerHTML.trim() == '') {
-        alert("Cannot submit a blank essay! Please enter your essay!");
+    if (richPage.innerHTML.trim() == '') {
+        alert('Cannot submit a blank essay! Please enter your essay!');
         event.preventDefault();
     }
 }
