@@ -10,3 +10,6 @@ package-lock.json
 .vscode/launch.json
 node_modules/
 .vscode/
+composer.json
+composer.lock
+vendor/
