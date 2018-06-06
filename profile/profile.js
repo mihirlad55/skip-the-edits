@@ -5,6 +5,7 @@
  * Load Profile Info into page
  */
 function loadInfo() {
+    // Update element texts with user's profile details
     document.getElementById('pName').innerHTML = info.fullName;
     document.getElementById('pProfession').innerHTML = info.profession;
     document.getElementById('pApprovalRate').innerHTML = parseInt(
